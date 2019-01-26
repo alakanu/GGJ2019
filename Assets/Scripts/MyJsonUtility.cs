@@ -90,19 +90,15 @@ static class MyJsonUtility
                         {
                             case "CharacterLike":
                                 answer.DiscoveryType = DiscoveryType.CharacterLike;
-                                answer.CharacterDiscovery = answerRaw.Discovery;
                                 break;
                             case "CharacterDislike":
                                 answer.DiscoveryType = DiscoveryType.CharacterDislike;
-                                answer.CharacterDiscovery = answerRaw.Discovery;
                                 break;
                             case "MapSideLike":
                                 answer.DiscoveryType = DiscoveryType.MapSideLike;
-                                answer.MapSideDiscovery = (MapSide)Enum.Parse(typeof(MapSide), answerRaw.Discovery);
                                 break;
                             case "MapSideDislike":
                                 answer.DiscoveryType = DiscoveryType.MapSideDislike;
-                                answer.MapSideDiscovery = (MapSide)Enum.Parse(typeof(MapSide), answerRaw.Discovery);
                                 break;
                         }
                     }
