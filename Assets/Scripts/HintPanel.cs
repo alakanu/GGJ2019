@@ -12,6 +12,8 @@ class HintPanel : MonoBehaviour
 
     public void DisplayCharacterHints(Character character)
     {
+        gameObject.SetActive(true);
+
         int i = 0;
 
         if (character.likeCharacter != null)
