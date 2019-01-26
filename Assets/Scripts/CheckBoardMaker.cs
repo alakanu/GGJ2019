@@ -80,6 +80,8 @@ public class CheckBoardMaker : MonoBehaviour
         {
             tileName += "_River";
         }
+        //Don't add after this index!
+        tileName += "_ind:" + currentIndex;
         BoxColliders[currentIndex].name = tileName;
         BoxColliders[currentIndex].tag = CHECKBOARDBOXESTAG;
         // Ignore Raycast layer
