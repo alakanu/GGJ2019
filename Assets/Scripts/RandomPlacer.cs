@@ -74,14 +74,12 @@ public class RandomPlacer : MonoBehaviour
                     {
                         isTooCloseToOthers = true;
                     }
-                    else
-                    {
-                        possiblePosition = hitInfo.point;
-                    }
                 }
+
 
                 if (isTooCloseToOthers == false)
                 {
+                    possiblePosition = hitInfo.point;
                     GameObject cloneObject = GameObject.Instantiate(possibleObjectToPlace, possiblePosition, rotation, this.transform);
 
                     _placedObjects.Add(cloneObject);
