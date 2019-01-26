@@ -51,27 +51,35 @@ static class MyJsonUtility
                 dialogues.Add(key, dialogue);
             }
 
-            dialogue.DialogueText = dialogueRaw.DialogueText;
+            dialogue.DialogueBody = dialogueRaw.DialogueBody;
             AnswerJson[] answersRaw = dialogueRaw.Answers;
-            Answer[] dialogueAnswers = new Answer[answersRaw.Length];
-            for (int i = 0; i < answersRaw.Length; i++)
+            if (answersRaw != null)
             {
-                var answerRaw = answersRaw[i];
-                var answer = new Answer();
-                answer.AnswerText = answerRaw.AnswerText;
-                string nextDialogueKey = answerRaw.NextDialogue;
-                Dialogue nextDialogue;
 
-                if (dialogues.TryGetValue(nextDialogueKey, out nextDialogue) == false)
+                Answer[] dialogueAnswers = new Answer[answersRaw.Length];
+                for (int i = 0; i < answersRaw.Length; i++)
                 {
-                    nextDialogue = new Dialogue();
-                    dialogues.Add(nextDialogueKey, nextDialogue);
-                }
+                    var answerRaw = answersRaw[i];
+                    var answer = new Answer();
+                    answer.AnswerText = answerRaw.AnswerText;
+                    string nextDialogueKey = answerRaw.NextDialogue;
+                    Dialogue nextDialogue;
 
-                answer.NextDialogue = nextDialogue;
-                dialogueAnswers[i] = answer;
+                    if (dialogues.TryGetValue(nextDialogueKey, out nextDialogue) == false)
+                    {
+                        nextDialogue = new Dialogue();
+                        dialogues.Add(nextDialogueKey, nextDialogue);
+                    }
+
+                    answer.NextDialogue = nextDialogue;
+                    dialogueAnswers[i] = answer;
+                }
+                dialogue.Answers = dialogueAnswers;
             }
-            dialogue.Answers = dialogueAnswers;
+            else
+            {
+                dialogue.Answers = new Answer[0];
+            }
         }
 
 

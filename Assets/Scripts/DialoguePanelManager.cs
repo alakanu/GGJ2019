@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,14 +17,56 @@ class DialoguePanelManager : MonoBehaviour
         }
     }
 
-    public void DisplayCharacter(Character character)
+    void Update()
     {
-        //TODO DISPLAY PICTURE FOR CHARACTER
 
+    }
 
-        Dialogue currentDialogue = character.CurrentDialogue;
-        DialogueText.text = currentDialogue.DialogueText;
-        if (currentDialogue.IsFinalDialogue)
+    public void DisplayDialogue(Dialogue currentDialogue)
+    {
+        StopAllCoroutines();
+        StartCoroutine(DisplayDialogueCoroutine(currentDialogue));
+    }
+
+    public void ForceDialogueCompletion()
+    {
+        forceCurrent = true;
+    }
+
+    public void ClearDialogue()
+    {
+        for (int i = 0; i < AnswerButtons.Length; i++)
+        {
+            AnswerButtons[i].gameObject.SetActive(false);
+        }
+    }
+
+    IEnumerator DisplayDialogueCoroutine(Dialogue currentDialogue)
+    {
+        int currentLineIndex = 0;
+        int parsedCharactersCount = 0;
+        DialogueLine[] lines = currentDialogue.DialogueBody;
+        while (currentLineIndex < lines.Length)
+        {
+            DialogueLine line = lines[currentLineIndex];
+            string lineText = line.Line;
+            while (parsedCharactersCount < lineText.Length)
+            {
+                if (forceCurrent)
+                {
+                    DialogueText.text = lineText;
+                    parsedCharactersCount = lineText.Length;
+                }
+                else
+                {
+                    DialogueText.text = lineText.Substring(0, ++parsedCharactersCount);
+                    yield return waitBetweenEachLetter;
+                }
+            }
+            ++currentLineIndex;
+        }
+
+        if (currentDialogue.HasFinalChoice)
         {
             AnswerButtons[0].gameObject.SetActive(true);
             AnswerTexts[0].text = FINAL_ANSWER;
@@ -51,6 +94,8 @@ class DialoguePanelManager : MonoBehaviour
     }
 
     const string FINAL_ANSWER = "Goodbye.";
+    bool forceCurrent;
+    WaitForSeconds waitBetweenEachLetter = new WaitForSeconds(0.3f);
 
     [SerializeField]
     Text DialogueText;

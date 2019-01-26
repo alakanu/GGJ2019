@@ -12,27 +12,29 @@ class MainGameController : MonoBehaviour
         MyJsonUtility.LoadCharacters(out charactersDict, out characters);
         dialogueUI.OnAnswerSelected += OnAnswerSelected;
         charactersUI.OnCharacterSelected += OnCharacterSelected;
+        currentCharacter = charactersDict["AI"];
+        dialogueUI.DisplayDialogue(currentCharacter.CurrentDialogue);
     }
 
     void OnAnswerSelected(int answerIndex)
     {
         Dialogue currentDialogue = currentCharacter.CurrentDialogue;
-        if (currentDialogue.IsFinalDialogue)
+        if (currentDialogue.HasFinalChoice)
         {
-            //TODO Reset stuff or don't know
             currentCharacter = null;
+            dialogueUI.ClearDialogue();
         }
         else
         {
             currentCharacter.CurrentDialogue = currentDialogue.Answers[answerIndex].NextDialogue;
-            dialogueUI.DisplayCharacter(currentCharacter);
+            dialogueUI.DisplayDialogue(currentDialogue);
         }
     }
 
     void OnCharacterSelected(int index)
     {
         currentCharacter = characters[index];
-        dialogueUI.DisplayCharacter(currentCharacter);
+        dialogueUI.DisplayDialogue(currentCharacter.CurrentDialogue);
         hintPanel.DisplayCharacterHints(currentCharacter);
     }
 
