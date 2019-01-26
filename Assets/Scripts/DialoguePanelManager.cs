@@ -27,6 +27,7 @@ class DialoguePanelManager : MonoBehaviour
     {
         fastForward = false;
         StopAllCoroutines();
+        ClearDialogue();
         StartCoroutine(DisplayDialogueCoroutine(currentDialogue));
     }
 
@@ -109,7 +110,7 @@ class DialoguePanelManager : MonoBehaviour
 
     const string FINAL_ANSWER = "Goodbye.";
     bool fastForward;
-    WaitForSeconds waitBetweenEachLetter = new WaitForSeconds(0.2f);
+    WaitForSeconds waitBetweenEachLetter = new WaitForSeconds(0.05f);
 
     [SerializeField]
     Text DialogueText;

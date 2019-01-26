@@ -8,9 +8,12 @@ static class MyJsonUtility
     const string DIALOGUES_PATH = "/JsonFiles/Dialogues.json";
     const string CHARACTERS_PATH = "/JsonFiles/Characters.json";
 
-    public static void LoadCharacters(out Dictionary<string, Character> characterDict, out Character[] characterArray)
+    public static void LoadData(
+        out Dictionary<string, Character> characterDict,
+        out Character[] characterArray,
+        out Dictionary<string, Dialogue> dialogues)
     {
-        Dictionary<string, Dialogue> dialogues = LoadDialogues();
+        dialogues = LoadDialogues();
 
         string characterFileContent = GetFileContent(Application.dataPath + CHARACTERS_PATH);
         int currentPosition = 1;
