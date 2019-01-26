@@ -1,64 +1,19 @@
 fileFormatVersion: 2
-guid: a03386420d2c62a418dcff716151ce4c
+guid: 7d3742550cc175747918e51c89fb3f81
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: BG
-    100002: //RootNode
-    100004: Terrain
-    100006: Water
-    400000: BG
-    400002: //RootNode
-    400004: Terrain
-    400006: Water
-    2100000: Sky
-    2100002: Mountain
-    2100004: Water
-    2100006: Snow
-    2100008: Grass
-    2100010: Sand
-    2300000: BG
-    2300002: Terrain
-    2300004: Water
-    3300000: BG
-    3300002: Terrain
-    3300004: Water
-    4300000: BG
-    4300002: Terrain
-    4300004: Water
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Skin
+    2100002: Hair
+    2100004: Nose
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Pawn
     7400000: Default Take
     9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Grass
-    second: {fileID: 2100000, guid: b37da454954dffe4985e44eb33992c9f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Mountain
-    second: {fileID: 2100000, guid: baaffd58e58e7314593394c4a8f45438, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Sand
-    second: {fileID: 2100000, guid: fad033effc9ef2e4d88da793bb47caf9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Sky
-    second: {fileID: 2100000, guid: cd34d43d249f28345afff8c44435d15e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Snow
-    second: {fileID: 2100000, guid: 61a0f18436ab83c448a3b83f48377b79, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Water
-    second: {fileID: 2100000, guid: 935d4fb7e11ebb34a9f0d0fe87661cbe, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
