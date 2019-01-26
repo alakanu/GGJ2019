@@ -26,6 +26,10 @@ public class CheckBoardMaker : MonoBehaviour
 #if UNITY_EDITOR
     void Update()
     {
+        if (Application.isPlaying)
+        {
+            return;
+        }
         DestroyEverything();
         CreateCheckBoard();
         ShowDebugCanvases();

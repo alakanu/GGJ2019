@@ -51,7 +51,7 @@ public class RandomPlacer : MonoBehaviour
             for (int j = 0; j < MaxTries; j++)
             {
                 Vector3 possiblePosition = RandomPointInBounds(_boxCollider.bounds);
-                Quaternion rotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
+                Quaternion rotation = Quaternion.Euler(possibleObjectToPlace.transform.rotation.eulerAngles.x, possibleObjectToPlace.transform.rotation.eulerAngles.y + Random.Range(0f, 360f), possibleObjectToPlace.transform.rotation.eulerAngles.z);
 
                 bool isTooCloseToOthers = false;
 
