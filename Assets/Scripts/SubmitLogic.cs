@@ -29,11 +29,11 @@ public class SubmitLogic : MonoBehaviour
 
             Character referenceChar = tile.character;
 
-            if (name.Contains(referenceChar.likeMapSide.ToString()))
+            if (name.Contains(referenceChar.LikedMapSide.ToString()))
             {
                 referenceChar.totalScore += likedMapSideBonus;
             }
-            if (name.Contains(referenceChar.dislikeMapSide.ToString()))
+            if (name.Contains(referenceChar.DislikedMapSide.ToString()))
             {
                 referenceChar.totalScore -= dislikedMapSideMalus;
             }
@@ -46,11 +46,11 @@ public class SubmitLogic : MonoBehaviour
                 Character otherCharacter;
                 if (_characterMap.TryGetValue(evaluatedCharacter.Key + index, out otherCharacter))
                 {
-                    if (evaluatedCharacter.Value.likeCharacter == otherCharacter.Name)
+                    if (evaluatedCharacter.Value.LikedCharacter == otherCharacter.Name)
                     {
                         evaluatedCharacter.Value.totalScore += likedCharacterBonus;
                     }
-                    else if (evaluatedCharacter.Value.dislikeCharacter == otherCharacter.Name)
+                    else if (evaluatedCharacter.Value.DislikedCharacter == otherCharacter.Name)
                     {
                         evaluatedCharacter.Value.totalScore += likedCharacterBonus;
                     }

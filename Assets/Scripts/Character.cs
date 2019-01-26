@@ -4,17 +4,18 @@
     public string WhatIsHome;
     public Dialogue CurrentDialogue;
 
-    public string likeCharacter;
-    public string dislikeCharacter;
-    public MapSide likeMapSide;
-    public MapSide dislikeMapSide;
+    public string LikedCharacter;
+    public string DislikedCharacter;
+    public MapSide LikedMapSide;
+    public MapSide DislikedMapSide;
+
+    public bool[] Discoveries;
 
     public int totalScore;
 }
 
 enum MapSide
 {
-    NotDiscovered = 0,
     Mountains,
     Beach,
     Forest,
@@ -26,5 +27,10 @@ class CharacterJson
 {
     public string StartingDialogue;
     public string WhatIsHome;
+
+    public string LikedCharacter;
+    public string DislikedCharacter;
+    public string LikedMapSide;
+    public string DislikedMapSide;
 }
 
