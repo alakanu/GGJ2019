@@ -3,16 +3,30 @@ using UnityEngine;
 
 class MainGameController : MonoBehaviour
 {
-    Dictionary<string, Dialogue> dialogues;
-    // Start is called before the first frame update
+    public DialoguePanelManager dialogueUI;
+
     void Start()
     {
-        dialogues = MyJsonUtility.LoadDialogues();
+        MyJsonUtility.LoadCharacters(out charactersDict, out characters);
+        dialogueUI.OnAnswerSelected += OnAnswerSelected;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnAnswerSelected(int answerIndex)
     {
-
+        Dialogue currentDialogue = currentCharacter.CurrentDialogue;
+        if (currentDialogue.IsFinalDialogue)
+        {
+            //TODO Reset stuff or don't know
+            currentCharacter = null;
+        }
+        else
+        {
+            currentCharacter.CurrentDialogue = currentDialogue.Answers[answerIndex].NextDialogue;
+            dialogueUI.DisplayCharacter(currentCharacter);
+        }
     }
+
+    Character currentCharacter;
+    Dictionary<string, Character> charactersDict;
+    Character[] characters;
 }
