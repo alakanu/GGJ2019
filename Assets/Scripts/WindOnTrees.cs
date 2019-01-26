@@ -1,18 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WindOnTrees : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    float offset;
+    float frequency;
+    AnimationCurve curve;
+    Quaternion maxDeltaRotation;
+    Quaternion baseRotation;
+    Quaternion maxRotation;
+
+    private void Start()
     {
-        
+        offset = Random.value / 10f;
+        WindOnTreeManager manager = GameObject.FindObjectOfType<WindOnTreeManager>();
+        manager.AddToManager(this, out frequency, out curve, out maxDeltaRotation);
+        baseRotation = this.transform.rotation;
+        maxRotation = baseRotation * maxDeltaRotation;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void BlowTheWind(float value)
     {
-        
+        this.transform.rotation = Quaternion.Lerp(baseRotation, maxRotation, curve.Evaluate(value));
     }
 }
