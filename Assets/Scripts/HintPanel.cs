@@ -7,6 +7,7 @@ class HintPanel : MonoBehaviour
     void Start()
     {
         lines = GetComponentsInChildren<Text>();
+        gameObject.SetActive(false);
     }
 
     public void DisplayCharacterHints(Character character)
