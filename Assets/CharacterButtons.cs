@@ -1,31 +1,39 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CharacterButtons : MonoBehaviour
 {
 	public DialogueManager dialogueManager;
-	public Button character1;
-	public Button character2;
-	public Button character3;
-	public Button character4;
-	public Button character5;
-	public Button character6;
-	public Button character7;
-	public Button character8;
-	public Button character9;
+	public Button[] characters;
+	public Transform[] draggables;
+	public EventTrigger[] dropLocations;
 	public Button submit;
 
 	void Start()
 	{
-		character1.onClick.AddListener(() => dialogueManager.OnCharacterSelected(1));
-		character2.onClick.AddListener(() => dialogueManager.OnCharacterSelected(2));
-		character3.onClick.AddListener(() => dialogueManager.OnCharacterSelected(3));
-		character4.onClick.AddListener(() => dialogueManager.OnCharacterSelected(4));
-		character5.onClick.AddListener(() => dialogueManager.OnCharacterSelected(5));
-		character6.onClick.AddListener(() => dialogueManager.OnCharacterSelected(6));
-		character7.onClick.AddListener(() => dialogueManager.OnCharacterSelected(7));
-		character8.onClick.AddListener(() => dialogueManager.OnCharacterSelected(8));
-		character9.onClick.AddListener(() => dialogueManager.OnCharacterSelected(9));
+		int length = characters.Length;
+		for (int i = 0; i < length; ++i)
+		{
+			int index = i;
+			characters[i].onClick.AddListener(() => dialogueManager.OnCharacterSelected(index));
+			var triggers = characters[i].GetComponent<EventTrigger>().triggers;
+			var entry = new EventTrigger.Entry();
+			entry.eventID = EventTriggerType.BeginDrag;
+			entry.callback.AddListener( (data) => { OnBeginDrag(index); });
+			triggers.Add(entry);
+
+			entry = new EventTrigger.Entry();
+			entry.eventID = EventTriggerType.Drag;
+			entry.callback.AddListener((data) => { OnDrag(index); });
+			triggers.Add(entry);
+
+			entry = new EventTrigger.Entry();
+			entry.eventID = EventTriggerType.EndDrag;
+			entry.callback.AddListener((data) => { OnEndDrag(index); });
+			triggers.Add(entry);
+		}
+
 		submit.onClick.AddListener(Submit);
 	}
 
@@ -34,4 +42,23 @@ public class CharacterButtons : MonoBehaviour
 		Debug.Log("Submit");
 		// Characters say if they're happy or not. Maybe explode.
 	}
+
+	void OnBeginDrag(int index)
+	{
+		draggables[index].gameObject.SetActive(true);
+	}
+
+	void OnDrag(int index)
+	{
+		draggables[index].position = Input.mousePosition;
+	}
+
+	void OnEndDrag(int index)
+	{
+		draggables[index].gameObject.SetActive(false);
+
+		// Cast a ray, see where in the grid the character was dropped.
+	}
+
+	private Transform draggedObject;
 }
