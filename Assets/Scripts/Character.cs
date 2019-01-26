@@ -8,6 +8,8 @@
     public string dislikeCharacter;
     public MapSide likeMapSide;
     public MapSide dislikeMapSide;
+
+    public int totalScore;
 }
 
 enum MapSide
