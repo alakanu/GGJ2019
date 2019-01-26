@@ -18,23 +18,19 @@
 		"DialogueBody":
 		[
 			{
-				"Speaker":"Captain", 
-				"Line": "captain line here"
+				"Speaker":"Professor", 
+				"Line": "you didn't study anything"
 			},
 			{
 				"Speaker":"AI", 
-				"Line": "ai line here line here"
+				"Line": "sorry pal!"
 			}
 		],
 		"Answers":
 		[
 			{
 				"AnswerText": "your answer text here",
-				"NextDialogue": "Dialogue1"
-			},
-			{
-				"AnswerText": "your answer text here",
-				"NextDialogue": "Dialogue3"
+				"NextDialogue": "Dialogue2"
 			}
 		]
 	},
@@ -49,13 +45,6 @@
 			{
 				"Speaker":"AI", 
 				"Line": "ai line here line here"
-			}
-		],
-		"Answers":
-		[
-			{
-				"AnswerText": "your answer text here",
-				"NextDialogue": "Dialogue1"
 			}
 		]
 	},

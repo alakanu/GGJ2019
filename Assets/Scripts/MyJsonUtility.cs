@@ -25,7 +25,10 @@ static class MyJsonUtility
             character.Name = characterKey;
             character.CurrentDialogue = dialogues[characterRaw.StartingDialogue];
             character.WhatIsHome = characterRaw.WhatIsHome;
-            charactersList.Add(character);
+            if (characterKey != "AI")
+            {
+                charactersList.Add(character);
+            }
             characterDict.Add(characterKey, character);
         }
 
