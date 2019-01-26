@@ -1,0 +1,47 @@
+{
+	"Dialogue1":
+	{
+		"DialogueText":"your dialogue text here",
+		"Answers":
+		[
+			{
+				"AnswerText": "your answer text here",
+				"NextDialogue": "Dialogue1"
+			},
+			{
+				"AnswerText": "your answer text here",
+				"NextDialogue": "Dialogue3"
+			}
+		]
+	},
+	"Dialogue2":
+	{
+		"DialogueText":"your dialogue text here",
+		"Answers":
+		[
+			{
+				"AnswerText": "your answer text here",
+				"NextDialogue": "Dialogue1"
+			}
+		]
+	},
+	"Dialogue3":
+	{
+		"DialogueText":"your dialogue text here",
+		"Answers":
+		[
+			{
+				"AnswerText": "your answer text here",
+				"NextDialogue": "Dialogue1"
+			},
+			{
+				"AnswerText": "your answer text here",
+				"NextDialogue": "Dialogue2"
+			},
+			{
+				"AnswerText": "this is recursive",
+				"NextDialogue": "Dialogue3"
+			}
+		]
+	},
+}
