@@ -58,6 +58,13 @@ public class CharacterButtons : MonoBehaviour
 		draggables[index].gameObject.SetActive(false);
 
 		// Cast a ray, see where in the grid the character was dropped.
+		var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
+		if (Physics.Raycast(ray, out hit))
+		{
+			Debug.Log("Hit " + hit.collider.gameObject.name);
+			// Now spawn a 3d character.
+		}
 	}
 
 	private Transform draggedObject;
