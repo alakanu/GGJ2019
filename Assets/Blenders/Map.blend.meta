@@ -6,9 +6,11 @@ ModelImporter:
     100000: BG
     100002: //RootNode
     100004: Terrain
+    100006: Water
     400000: BG
     400002: //RootNode
     400004: Terrain
+    400006: Water
     2100000: Sky
     2100002: Mountain
     2100004: Water
@@ -17,10 +19,13 @@ ModelImporter:
     2100010: Sand
     2300000: BG
     2300002: Terrain
+    2300004: Water
     3300000: BG
     3300002: Terrain
+    3300004: Water
     4300000: BG
     4300002: Terrain
+    4300004: Water
     7400000: Default Take
     9500000: //RootNode
   externalObjects:

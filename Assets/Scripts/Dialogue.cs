@@ -1,14 +1,21 @@
 ﻿class Dialogue
 {
-    public string DialogueText;
+    public DialogueLine[] DialogueBody;
     public Answer[] Answers;
-    public bool IsFinalDialogue { get { return Answers.Length == 0; } }
+    public bool HasFinalChoice { get { return Answers.Length != 0; } }
 }
 
 [System.Serializable]
 class DialogueJson
 {
-    public string DialogueText;
+    public DialogueLine[] DialogueBody;
     public AnswerJson[] Answers;
+}
+
+[System.Serializable]
+class DialogueLine
+{
+    public string Speaker;
+    public string Line;
 }
 
