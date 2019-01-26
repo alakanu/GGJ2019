@@ -21,13 +21,13 @@ class MainGameController : MonoBehaviour
         Dialogue currentDialogue = currentCharacter.CurrentDialogue;
         if (currentDialogue.HasFinalChoice)
         {
-            currentCharacter = null;
-            dialogueUI.ClearDialogue();
+            currentCharacter.CurrentDialogue = currentDialogue.Answers[answerIndex].NextDialogue;
+            dialogueUI.DisplayDialogue(currentDialogue);
         }
         else
         {
-            currentCharacter.CurrentDialogue = currentDialogue.Answers[answerIndex].NextDialogue;
-            dialogueUI.DisplayDialogue(currentDialogue);
+            currentCharacter = null;
+            dialogueUI.ClearDialogue();
         }
     }
 

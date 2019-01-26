@@ -14,13 +14,10 @@ class DialoguePanelManager : MonoBehaviour
         {
             AnswerButtons[i].onClick.AddListener(() => OnAnswerSelected(i));
             AnswerTexts[i] = AnswerButtons[i].GetComponentInChildren<Text>();
+            AnswerButtons[i].gameObject.SetActive(false);
         }
     }
 
-    void Update()
-    {
-
-    }
 
     public void DisplayDialogue(Dialogue currentDialogue)
     {
@@ -44,12 +41,12 @@ class DialoguePanelManager : MonoBehaviour
     IEnumerator DisplayDialogueCoroutine(Dialogue currentDialogue)
     {
         int currentLineIndex = 0;
-        int parsedCharactersCount = 0;
         DialogueLine[] lines = currentDialogue.DialogueBody;
         while (currentLineIndex < lines.Length)
         {
             DialogueLine line = lines[currentLineIndex];
             string lineText = line.Line;
+            int parsedCharactersCount = 0;
             while (parsedCharactersCount < lineText.Length)
             {
                 if (forceCurrent)
@@ -68,16 +65,6 @@ class DialoguePanelManager : MonoBehaviour
 
         if (currentDialogue.HasFinalChoice)
         {
-            AnswerButtons[0].gameObject.SetActive(true);
-            AnswerTexts[0].text = FINAL_ANSWER;
-            for (int i = 1; i < AnswerTexts.Length; i++)
-            {
-                AnswerButtons[i].gameObject.SetActive(false);
-
-            }
-        }
-        else
-        {
             Answer[] answers = currentDialogue.Answers;
             int i;
             for (i = 0; i < answers.Length; i++)
@@ -91,11 +78,21 @@ class DialoguePanelManager : MonoBehaviour
                 AnswerButtons[i].gameObject.SetActive(false);
             }
         }
+        else
+        {
+            AnswerButtons[0].gameObject.SetActive(true);
+            AnswerTexts[0].text = FINAL_ANSWER;
+            for (int i = 1; i < AnswerTexts.Length; i++)
+            {
+                AnswerButtons[i].gameObject.SetActive(false);
+
+            }
+        }
     }
 
     const string FINAL_ANSWER = "Goodbye.";
     bool forceCurrent;
-    WaitForSeconds waitBetweenEachLetter = new WaitForSeconds(0.3f);
+    WaitForSeconds waitBetweenEachLetter = new WaitForSeconds(0.2f);
 
     [SerializeField]
     Text DialogueText;

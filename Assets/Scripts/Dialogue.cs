@@ -2,7 +2,7 @@
 {
     public DialogueLine[] DialogueBody;
     public Answer[] Answers;
-    public bool HasFinalChoice { get { return Answers.Length == 0; } }
+    public bool HasFinalChoice { get { return Answers.Length != 0; } }
 }
 
 [System.Serializable]
