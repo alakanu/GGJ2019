@@ -4,10 +4,11 @@ using UnityEngine;
 
 
 //[ExecuteInEditMode]
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(BoxCollider)), ExecuteInEditMode]
 public class RandomPlacer : MonoBehaviour
 {
     public GameObject[] ObjectsToRandomlyPlace;
+    public int RandomSeed;
     public int NumOfObjectsToPlace;
     public float MinDistance;
     public int MaxTries;
@@ -15,8 +16,33 @@ public class RandomPlacer : MonoBehaviour
     BoxCollider _boxCollider;
     List<GameObject> _placedObjects = new List<GameObject>();
 
+#if !UNITY_EDITOR
     void Start()
     {
+        //Remove Unwanted Stuff
+    }
+#endif
+
+    // Start is called before the first frame update
+#if UNITY_EDITOR
+    void Update()
+    {
+        if (Application.isPlaying)
+        {
+            return;
+        }
+        DestroyEverything();
+        SpawnEverything();
+    }
+#endif
+
+    void Start()
+    {
+    }
+
+    void SpawnEverything()
+    {
+        Random.InitState(RandomSeed);
         _boxCollider = GetComponent<BoxCollider>();
         for (int i = 0; i < NumOfObjectsToPlace; i++)
         {
@@ -37,7 +63,6 @@ public class RandomPlacer : MonoBehaviour
                 {
                     //LineRenderer lineRenderer = new LineRenderer();
                     //lineRenderer.SetPositions(new Vector3[](){ ray.origin, ray.or  } );
-                    Debug.Log("no hits");
                     continue;
                 }
 
@@ -48,7 +73,6 @@ public class RandomPlacer : MonoBehaviour
                     if ((_placedObjects[o].transform.position - hitInfo.point).magnitude < MinDistance)
                     {
                         isTooCloseToOthers = true;
-                        Debug.Log("too close to others");
                     }
                     else
                     {
@@ -65,6 +89,18 @@ public class RandomPlacer : MonoBehaviour
                 }
             }
         }
+    }
+
+    void DestroyEverything()
+    {
+        Transform[] allgameObjects = this.transform.GetComponentsInChildren<Transform>();
+        foreach (var item in allgameObjects)
+        {
+            if (item == this.transform)
+                continue;
+            DestroyImmediate(item.gameObject);
+        }
+        _placedObjects.Clear();
     }
 
     public static Vector3 RandomPointInBounds(Bounds bounds)
