@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -30,6 +31,11 @@ static class MyJsonUtility
             character.WhatIsHome = characterRaw.WhatIsHome;
             if (characterKey != "AI")
             {
+                character.LikedCharacter = characterRaw.LikedCharacter;
+                character.DislikedCharacter = characterRaw.DislikedCharacter;
+                character.LikedMapSide = (MapSide)Enum.Parse(typeof(MapSide), characterRaw.LikedMapSide);
+                character.DislikedMapSide = (MapSide)Enum.Parse(typeof(MapSide), characterRaw.DislikedMapSide);
+                character.Discoveries = new bool[4];
                 charactersList.Add(character);
             }
             characterDict.Add(characterKey, character);
@@ -61,7 +67,6 @@ static class MyJsonUtility
             AnswerJson[] answersRaw = dialogueRaw.Answers;
             if (answersRaw != null)
             {
-
                 Answer[] dialogueAnswers = new Answer[answersRaw.Length];
                 for (int i = 0; i < answersRaw.Length; i++)
                 {
@@ -78,6 +83,30 @@ static class MyJsonUtility
                     }
 
                     answer.NextDialogue = nextDialogue;
+
+                    if (answerRaw.DiscoveryType != null)
+                    {
+                        switch (answerRaw.DiscoveryType)
+                        {
+                            case "CharacterLike":
+                                answer.DiscoveryType = DiscoveryType.CharacterLike;
+                                break;
+                            case "CharacterDislike":
+                                answer.DiscoveryType = DiscoveryType.CharacterDislike;
+                                break;
+                            case "MapSideLike":
+                                answer.DiscoveryType = DiscoveryType.MapSideLike;
+                                break;
+                            case "MapSideDislike":
+                                answer.DiscoveryType = DiscoveryType.MapSideDislike;
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        answer.DiscoveryType = DiscoveryType.None;
+                    }
+
                     dialogueAnswers[i] = answer;
                 }
                 dialogue.Answers = dialogueAnswers;

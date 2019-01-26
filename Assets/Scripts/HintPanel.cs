@@ -14,50 +14,48 @@ class HintPanel : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        int i = 0;
+        int hintCount = 0;
+        bool[] discoveries = character.Discoveries;
 
-        if (character.likeCharacter != null)
+        if (discoveries[0])
         {
-            lines[i].gameObject.SetActive(true);
-            lines[i].text = "Likes " + character.likeCharacter;
-            ++i;
+            lines[hintCount].gameObject.SetActive(true);
+            lines[hintCount].text = "Likes " + character.LikedCharacter;
+            ++hintCount;
         }
 
-        if (character.dislikeCharacter != null)
+        if (discoveries[1])
         {
-            lines[i].gameObject.SetActive(true);
-            lines[i].text = "Dislikes " + character.dislikeCharacter;
-            ++i;
+            lines[hintCount].gameObject.SetActive(true);
+            lines[hintCount].text = "Dislikes " + character.DislikedCharacter;
+            ++hintCount;
         }
 
-        if (character.likeMapSide != MapSide.NotDiscovered)
+        if (discoveries[2])
         {
-            lines[i].gameObject.SetActive(true);
-            lines[i].text = "Likes " + character.likeMapSide;
-            ++i;
+            lines[hintCount].gameObject.SetActive(true);
+            lines[hintCount].text = "Likes " + character.LikedMapSide;
+            ++hintCount;
         }
 
-        if (character.dislikeMapSide != MapSide.NotDiscovered)
+        if (discoveries[3])
         {
-            lines[i].gameObject.SetActive(true);
-            lines[i].text = "Dislikes " + character.dislikeMapSide;
-            ++i;
+            lines[hintCount].gameObject.SetActive(true);
+            lines[hintCount].text = "Dislikes " + character.DislikedMapSide;
+            ++hintCount;
         }
 
-        if (i == 0)
+        if (hintCount == 0)
         {
             gameObject.SetActive(false);
         }
         else
         {
-            for (; i < lines.Length; i++)
+            for (; hintCount < lines.Length; hintCount++)
             {
-                lines[i].gameObject.SetActive(false);
+                lines[hintCount].gameObject.SetActive(false);
             }
         }
-
-
-
     }
 
     Text[] lines;

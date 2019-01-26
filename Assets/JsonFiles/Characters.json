@@ -6,7 +6,11 @@
 	"Professor":
 	{
 		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"An academic community, one they never had on Earth."
+		"WhatIsHome":"An academic community, one they never had on Earth.",
+		"LikedCharacter":"Astronomer",
+		"DislikedCharacter":"Executive",
+		"LikedMapSide":"Mountains",
+		"DislikedMapSide":"Beach"
 	},
 	"Astronomer":
 	{

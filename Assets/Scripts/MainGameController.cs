@@ -21,7 +21,29 @@ class MainGameController : MonoBehaviour
         Dialogue currentDialogue = currentCharacter.CurrentDialogue;
         if (currentDialogue.HasFinalChoice)
         {
-            currentCharacter.CurrentDialogue = currentDialogue.Answers[answerIndex].NextDialogue;
+            Answer answer = currentDialogue.Answers[answerIndex];
+            if (answer.HasDiscovery)
+            {
+                int index = -1;
+                switch (answer.DiscoveryType)
+                {
+                    case DiscoveryType.CharacterLike:
+                        index = 0;
+                        break;
+                    case DiscoveryType.CharacterDislike:
+                        index = 1;
+                        break;
+                    case DiscoveryType.MapSideLike:
+                        index = 2;
+                        break;
+                    case DiscoveryType.MapSideDislike:
+                        index = 3;
+                        break;
+                }
+                currentCharacter.Discoveries[index] = true;
+            }
+
+            currentCharacter.CurrentDialogue = answer.NextDialogue;
             dialogueUI.DisplayDialogue(currentCharacter.CurrentDialogue);
         }
         else
