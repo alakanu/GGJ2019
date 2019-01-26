@@ -3,15 +3,30 @@ using UnityEngine;
 
 class MainGameController : MonoBehaviour
 {
-    public UIDialogueManager dialogueManager;
+    public DialoguePanelManager dialogueUI;
 
     void Start()
     {
         MyJsonUtility.LoadCharacters(out charactersDict, out characters);
-
-        //TODO: subscribe to buttons
+        dialogueUI.OnAnswerSelected += OnAnswerSelected;
     }
 
+    void OnAnswerSelected(int answerIndex)
+    {
+        Dialogue currentDialogue = currentCharacter.CurrentDialogue;
+        if (currentDialogue.IsFinalDialogue)
+        {
+            //TODO Reset stuff or don't know
+            currentCharacter = null;
+        }
+        else
+        {
+            currentCharacter.CurrentDialogue = currentDialogue.Answers[answerIndex].NextDialogue;
+            dialogueUI.DisplayCharacter(currentCharacter);
+        }
+    }
+
+    Character currentCharacter;
     Dictionary<string, Character> charactersDict;
     Character[] characters;
 }
