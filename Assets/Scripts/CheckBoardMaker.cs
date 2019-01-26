@@ -36,10 +36,9 @@ public class CheckBoardMaker : MonoBehaviour
     {
         foreach (var item in BoxColliders)
         {
-            GameObject canvas = GameObject.Instantiate(CanvasDebug);
+            GameObject canvas = GameObject.Instantiate(CanvasDebug, transform, false);
             Text text = canvas.GetComponent<Text>();
             text.text = item.name;
-            canvas.transform.parent = this.transform;
             canvas.transform.position = item.transform.position + new Vector3(0f,3f,0f);
         }
     }
@@ -98,7 +97,7 @@ public class CheckBoardMaker : MonoBehaviour
         {
             if (item == this.transform)
                 continue;
-            DestroyImmediate(item.gameObject); 
+            DestroyImmediate(item.gameObject);
         }
 
         BoxColliders.Clear();
