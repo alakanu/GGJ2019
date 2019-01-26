@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CharacterButtons : MonoBehaviour
+class CharacterPanelManager : MonoBehaviour
 {
+    public event Action<int> OnCharacterSelected;
+
     public Button[] characters;
     public Transform[] draggables;
     public EventTrigger[] dropLocations;
@@ -11,11 +14,13 @@ public class CharacterButtons : MonoBehaviour
 
     void Start()
     {
+        mainCamera = Camera.main;
+        hintPanel = GetComponentInChildren<HintPanel>();
         int length = characters.Length;
         for (int i = 0; i < length; ++i)
         {
             int index = i;
-            // characters[i].onClick.AddListener(() => dialogueManager.OnCharacterSelected(index));
+            characters[i].onClick.AddListener(() => OnCharacterSelected(index));
             var triggers = characters[i].GetComponent<EventTrigger>().triggers;
             var entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.BeginDrag;
@@ -34,6 +39,11 @@ public class CharacterButtons : MonoBehaviour
         }
 
         submit.onClick.AddListener(Submit);
+    }
+
+    public void DisplayHintsForCharacter(int index, Character character)
+    {
+
     }
 
     void Submit()
@@ -57,7 +67,7 @@ public class CharacterButtons : MonoBehaviour
         draggables[index].gameObject.SetActive(false);
 
         // Cast a ray, see where in the grid the character was dropped.
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
@@ -66,5 +76,7 @@ public class CharacterButtons : MonoBehaviour
         }
     }
 
-    private Transform draggedObject;
+    Transform draggedObject;
+    Camera mainCamera;
+    HintPanel hintPanel;
 }

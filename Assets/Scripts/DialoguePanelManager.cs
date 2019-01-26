@@ -8,9 +8,11 @@ class DialoguePanelManager : MonoBehaviour
 
     void Start()
     {
+        AnswerTexts = new Text[AnswerButtons.Length];
         for (int i = 0; i < AnswerButtons.Length; i++)
         {
             AnswerButtons[i].onClick.AddListener(() => OnAnswerSelected(i));
+            AnswerTexts[i] = AnswerButtons[i].GetComponentInChildren<Text>();
         }
     }
 
@@ -23,11 +25,11 @@ class DialoguePanelManager : MonoBehaviour
         DialogueText.text = currentDialogue.DialogueText;
         if (currentDialogue.IsFinalDialogue)
         {
-            AnswerTexts[0].gameObject.SetActive(true);
+            AnswerButtons[0].gameObject.SetActive(true);
             AnswerTexts[0].text = FINAL_ANSWER;
             for (int i = 1; i < AnswerTexts.Length; i++)
             {
-                AnswerTexts[i].gameObject.SetActive(false);
+                AnswerButtons[i].gameObject.SetActive(false);
 
             }
         }
@@ -37,13 +39,13 @@ class DialoguePanelManager : MonoBehaviour
             int i;
             for (i = 0; i < answers.Length; i++)
             {
-                AnswerTexts[i].gameObject.SetActive(true);
+                AnswerButtons[i].gameObject.SetActive(true);
                 AnswerTexts[i].text = answers[i].AnswerText;
             }
 
             for (; i < AnswerTexts.Length; i++)
             {
-                AnswerTexts[i].gameObject.SetActive(false);
+                AnswerButtons[i].gameObject.SetActive(false);
             }
         }
     }
@@ -54,6 +56,6 @@ class DialoguePanelManager : MonoBehaviour
     Text DialogueText;
     [SerializeField]
     Button[] AnswerButtons;
-    [SerializeField]
+
     Text[] AnswerTexts;
 }

@@ -4,10 +4,10 @@
     public string WhatIsHome;
     public Dialogue CurrentDialogue;
 
-     string likeCharacter;
-     string dislikeCharacter;
-     MapSide likeMapSide;
-     MapSide dislikeMapSide;
+    public string likeCharacter;
+    public string dislikeCharacter;
+    public MapSide likeMapSide;
+    public MapSide dislikeMapSide;
 }
 
 enum MapSide

@@ -4,11 +4,13 @@ using UnityEngine;
 class MainGameController : MonoBehaviour
 {
     public DialoguePanelManager dialogueUI;
+    public CharacterPanelManager charactersUI;
 
     void Start()
     {
         MyJsonUtility.LoadCharacters(out charactersDict, out characters);
         dialogueUI.OnAnswerSelected += OnAnswerSelected;
+        charactersUI.OnCharacterSelected += OnCharacterSelected;
     }
 
     void OnAnswerSelected(int answerIndex)
@@ -24,6 +26,12 @@ class MainGameController : MonoBehaviour
             currentCharacter.CurrentDialogue = currentDialogue.Answers[answerIndex].NextDialogue;
             dialogueUI.DisplayCharacter(currentCharacter);
         }
+    }
+
+    void OnCharacterSelected(int index)
+    {
+        currentCharacter = characters[index];
+        dialogueUI.DisplayCharacter(currentCharacter);
     }
 
     Character currentCharacter;
