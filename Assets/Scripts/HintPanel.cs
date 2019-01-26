@@ -44,10 +44,19 @@ class HintPanel : MonoBehaviour
             ++i;
         }
 
-        for (; i < lines.Length; i++)
+        if (i == 0)
         {
-            lines[i].gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
+        else
+        {
+            for (; i < lines.Length; i++)
+            {
+                lines[i].gameObject.SetActive(false);
+            }
+        }
+
+
 
     }
 

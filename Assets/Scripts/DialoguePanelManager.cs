@@ -12,7 +12,11 @@ class DialoguePanelManager : MonoBehaviour
         AnswerTexts = new Text[AnswerButtons.Length];
         for (int i = 0; i < AnswerButtons.Length; i++)
         {
-            AnswerButtons[i].onClick.AddListener(() => OnAnswerSelected(i));
+            int answerIndex = i;
+            AnswerButtons[i].onClick.AddListener(() =>
+            {
+                OnAnswerSelected(answerIndex);
+            });
             AnswerTexts[i] = AnswerButtons[i].GetComponentInChildren<Text>();
             AnswerButtons[i].gameObject.SetActive(false);
         }
@@ -21,17 +25,19 @@ class DialoguePanelManager : MonoBehaviour
 
     public void DisplayDialogue(Dialogue currentDialogue)
     {
+        fastForward = false;
         StopAllCoroutines();
         StartCoroutine(DisplayDialogueCoroutine(currentDialogue));
     }
 
-    public void ForceDialogueCompletion()
+    public void DialogueFastForward()
     {
-        forceCurrent = true;
+        fastForward = true;
     }
 
     public void ClearDialogue()
     {
+        DialogueText.text = string.Empty;
         for (int i = 0; i < AnswerButtons.Length; i++)
         {
             AnswerButtons[i].gameObject.SetActive(false);
@@ -49,10 +55,11 @@ class DialoguePanelManager : MonoBehaviour
             int parsedCharactersCount = 0;
             while (parsedCharactersCount < lineText.Length)
             {
-                if (forceCurrent)
+                if (fastForward)
                 {
                     DialogueText.text = lineText;
                     parsedCharactersCount = lineText.Length;
+                    fastForward = false;
                 }
                 else
                 {
@@ -60,6 +67,16 @@ class DialoguePanelManager : MonoBehaviour
                     yield return waitBetweenEachLetter;
                 }
             }
+
+            if (currentLineIndex != lines.Length - 1)
+            {
+                while (!fastForward)
+                {
+                    yield return null;
+                }
+                fastForward = false;
+            }
+
             ++currentLineIndex;
         }
 
@@ -91,7 +108,7 @@ class DialoguePanelManager : MonoBehaviour
     }
 
     const string FINAL_ANSWER = "Goodbye.";
-    bool forceCurrent;
+    bool fastForward;
     WaitForSeconds waitBetweenEachLetter = new WaitForSeconds(0.2f);
 
     [SerializeField]

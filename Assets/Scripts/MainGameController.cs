@@ -34,8 +34,17 @@ class MainGameController : MonoBehaviour
     void OnCharacterSelected(int index)
     {
         currentCharacter = characters[index];
+        Debug.Log("SELECTED " + index + " " + currentCharacter.Name);
         dialogueUI.DisplayDialogue(currentCharacter.CurrentDialogue);
         hintPanel.DisplayCharacterHints(currentCharacter);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            dialogueUI.DialogueFastForward();
+        }
     }
 
     Character currentCharacter;
