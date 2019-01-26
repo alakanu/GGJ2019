@@ -14,7 +14,7 @@ class CharacterPanelManager : MonoBehaviour
 
     void Start()
     {
-        mainCamera = Camera.main;
+        mainCamera = FindObjectOfType<Camera>();
 
         int length = characters.Length;
         for (int i = 0; i < length; ++i)
