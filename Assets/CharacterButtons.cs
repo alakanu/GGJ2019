@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class CharacterButtons : MonoBehaviour
 {
-	public DialogueManager dialogueManager;
+	public UIDialogueManager dialogueManager;
 	public Button[] characters;
 	public Transform[] draggables;
 	public EventTrigger[] dropLocations;

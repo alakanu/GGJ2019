@@ -1,19 +1,47 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 static class MyJsonUtility
 {
-    const string PATH = "/JsonFiles/Dialogues.json";
-    public static Dictionary<string, Dialogue> LoadDialogues()
+    const string DIALOGUES_PATH = "/JsonFiles/Dialogues.json";
+    const string CHARACTERS_PATH = "/JsonFiles/Characters.json";
+
+    public static void LoadCharacters(out Dictionary<string, Character> characterDict, out Character[] characterArray)
+    {
+        Dictionary<string, Dialogue> dialogues = LoadDialogues();
+
+        string characterFileContent = GetFileContent(Application.dataPath + CHARACTERS_PATH);
+        int currentPosition = 1;
+        string characterKey, characterJsonEntry;
+        List<Character> charactersList = new List<Character>();
+        characterDict = new Dictionary<string, Character>();
+        while (TryGetNextEntry(characterFileContent, ref currentPosition, out characterKey, out characterJsonEntry))
+        {
+            CharacterJson characterRaw = JsonUtility.FromJson<CharacterJson>(characterJsonEntry);
+
+            Character character = new Character();
+            character.Name = characterKey;
+            character.CurrentDialogue = dialogues[characterRaw.StartingDialogue];
+            character.WhatIsHome = characterRaw.WhatIsHome;
+            charactersList.Add(character);
+            characterDict.Add(characterKey, character);
+        }
+
+        characterArray = charactersList.ToArray();
+
+    }
+
+    static Dictionary<string, Dialogue> LoadDialogues()
     {
         Dictionary<string, Dialogue> dialogues = new Dictionary<string, Dialogue>();
 
-        string jsonFileContent = File.ReadAllText(Application.dataPath + PATH).Replace("\t", "").Replace("\n", "").Replace("\r", "");
+        string dialogueFileContent = GetFileContent(Application.dataPath + DIALOGUES_PATH);
         int currentPosition = 1;
         string key, jsonEntry;
 
-        while (TryGetNextEntry(jsonFileContent, ref currentPosition, out key, out jsonEntry))
+        while (TryGetNextEntry(dialogueFileContent, ref currentPosition, out key, out jsonEntry))
         {
             DialogueJson dialogueRaw = JsonUtility.FromJson<DialogueJson>(jsonEntry);
             Dialogue dialogue;
@@ -48,6 +76,11 @@ static class MyJsonUtility
 
 
         return dialogues;
+    }
+
+    static string GetFileContent(string path)
+    {
+        return Regex.Replace(File.ReadAllText(path), "\t|\r|\n", "");
     }
 
     static bool TryGetNextEntry(
@@ -98,8 +131,13 @@ static class MyJsonUtility
         }
 
         string result = jsonFileContent.Substring(currentPosition + 1, length - 1);
+        currentPosition += length;
 
-        currentPosition += length + 2;// the " plus the :
+        while (jsonFileContent[currentPosition] != ':')
+        {
+            currentPosition++;
+        }
+        currentPosition++;
         return result;
     }
 

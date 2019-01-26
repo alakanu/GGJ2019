@@ -3,16 +3,15 @@ using UnityEngine;
 
 class MainGameController : MonoBehaviour
 {
-    Dictionary<string, Dialogue> dialogues;
-    // Start is called before the first frame update
+    public UIDialogueManager dialogueManager;
+
     void Start()
     {
-        dialogues = MyJsonUtility.LoadDialogues();
+        MyJsonUtility.LoadCharacters(out charactersDict, out characters);
+
+        //TODO: subscribe to buttons
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    Dictionary<string, Character> charactersDict;
+    Character[] characters;
 }
