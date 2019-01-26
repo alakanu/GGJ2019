@@ -12,6 +12,7 @@
 
 enum MapSide
 {
+    NotDiscovered = 0,
     Mountains,
     Beach,
     Forest,

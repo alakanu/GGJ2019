@@ -5,6 +5,7 @@ class MainGameController : MonoBehaviour
 {
     public DialoguePanelManager dialogueUI;
     public CharacterPanelManager charactersUI;
+    public HintPanel hintPanel;
 
     void Start()
     {
@@ -32,6 +33,7 @@ class MainGameController : MonoBehaviour
     {
         currentCharacter = characters[index];
         dialogueUI.DisplayCharacter(currentCharacter);
+        hintPanel.DisplayCharacterHints(currentCharacter);
     }
 
     Character currentCharacter;

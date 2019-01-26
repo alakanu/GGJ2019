@@ -15,7 +15,7 @@ class CharacterPanelManager : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        hintPanel = GetComponentInChildren<HintPanel>();
+
         int length = characters.Length;
         for (int i = 0; i < length; ++i)
         {
@@ -39,11 +39,6 @@ class CharacterPanelManager : MonoBehaviour
         }
 
         submit.onClick.AddListener(Submit);
-    }
-
-    public void DisplayHintsForCharacter(int index, Character character)
-    {
-
     }
 
     void Submit()
