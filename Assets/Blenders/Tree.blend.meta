@@ -12,7 +12,17 @@ ModelImporter:
     4300000: Tree
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves
+    second: {fileID: 2100002, guid: 3dd7ec3536f16d74493edd3b0bcb670b, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mountain_001
+    second: {fileID: 2100000, guid: 52a025621fb52b34fa2de8b63436d33d, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
