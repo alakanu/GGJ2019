@@ -1,7 +1,31 @@
 {
+	"IntroDialogue":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Captain", 
+				"Line": "captain line here"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "ai line here line here"
+			}
+		]
+	},
 	"Dialogue1":
 	{
-		"DialogueText":"your dialogue text here",
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Captain", 
+				"Line": "captain line here"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "ai line here line here"
+			}
+		],
 		"Answers":
 		[
 			{
@@ -16,7 +40,17 @@
 	},
 	"Dialogue2":
 	{
-		"DialogueText":"your dialogue text here",
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Captain", 
+				"Line": "captain line here"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "ai line here line here"
+			}
+		],
 		"Answers":
 		[
 			{
@@ -27,7 +61,17 @@
 	},
 	"Dialogue3":
 	{
-		"DialogueText":"your dialogue text here",
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Captain", 
+				"Line": "captain line here"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "ai line here line here"
+			}
+		],
 		"Answers":
 		[
 			{
