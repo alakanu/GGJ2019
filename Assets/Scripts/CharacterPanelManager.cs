@@ -9,7 +9,8 @@ class CharacterPanelManager : MonoBehaviour
 
     public Button[] characters;
     public Transform[] draggables;
-    public EventTrigger[] dropLocations;
+    public Collider[] dropLocations;
+//    public Transform[] cellCenter
     public Button submit;
 
     void Start()
@@ -45,7 +46,7 @@ class CharacterPanelManager : MonoBehaviour
         }
 
         submit.onClick.AddListener(Submit);
-        draggingMask = 1 << LayerMask.NameToLayer("Dragging");
+        terrainMask = 1 << LayerMask.NameToLayer("Terrain");
     }
 
     void Submit()
@@ -63,7 +64,7 @@ class CharacterPanelManager : MonoBehaviour
     {
         var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, draggingMask))
+        if (Physics.Raycast(ray, out hit, terrainMask))
         {
             // Some point above the ground.
             const float HEIGHT = 1.0f;
@@ -78,15 +79,16 @@ class CharacterPanelManager : MonoBehaviour
         // Cast a ray, see where in the grid the character was dropped.
         var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, terrainMask))
         {
             Debug.Log("Hit " + hit.collider.gameObject.name);
             // Now spawn a 3d character.
+//            draggables[index].position =
         }
     }
 
     Transform draggedObject;
     Camera mainCamera;
     HintPanel hintPanel;
-    LayerMask draggingMask;
+    LayerMask terrainMask;
 }
