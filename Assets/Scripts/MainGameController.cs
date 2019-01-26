@@ -9,7 +9,7 @@ class MainGameController : MonoBehaviour
 
     void Start()
     {
-        MyJsonUtility.LoadCharacters(out charactersDict, out characters);
+        MyJsonUtility.LoadData(out charactersDict, out characters, out dialogues);
         dialogueUI.OnAnswerSelected += OnAnswerSelected;
         charactersUI.OnCharacterSelected += OnCharacterSelected;
         currentCharacter = charactersDict["AI"];
@@ -22,7 +22,7 @@ class MainGameController : MonoBehaviour
         if (currentDialogue.HasFinalChoice)
         {
             currentCharacter.CurrentDialogue = currentDialogue.Answers[answerIndex].NextDialogue;
-            dialogueUI.DisplayDialogue(currentDialogue);
+            dialogueUI.DisplayDialogue(currentCharacter.CurrentDialogue);
         }
         else
         {
@@ -34,7 +34,6 @@ class MainGameController : MonoBehaviour
     void OnCharacterSelected(int index)
     {
         currentCharacter = characters[index];
-        Debug.Log("SELECTED " + index + " " + currentCharacter.Name);
         dialogueUI.DisplayDialogue(currentCharacter.CurrentDialogue);
         hintPanel.DisplayCharacterHints(currentCharacter);
     }
@@ -49,5 +48,6 @@ class MainGameController : MonoBehaviour
 
     Character currentCharacter;
     Dictionary<string, Character> charactersDict;
+    Dictionary<string, Dialogue> dialogues;
     Character[] characters;
 }
