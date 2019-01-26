@@ -45,8 +45,7 @@ class CharacterPanelManager : MonoBehaviour
         }
 
         submit.onClick.AddListener(Submit);
-
-
+        draggingMask = 1 << LayerMask.NameToLayer("Dragging");
     }
 
     void Submit()
@@ -62,7 +61,14 @@ class CharacterPanelManager : MonoBehaviour
 
     void OnDrag(int index)
     {
-        draggables[index].position = Input.mousePosition;
+        var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, draggingMask))
+        {
+            // Some point above the ground.
+            const float HEIGHT = 1.0f;
+            draggables[index].position = hit.point + Vector3.up * HEIGHT;
+        }
     }
 
     void OnEndDrag(int index)
@@ -82,4 +88,5 @@ class CharacterPanelManager : MonoBehaviour
     Transform draggedObject;
     Camera mainCamera;
     HintPanel hintPanel;
+    LayerMask draggingMask;
 }
