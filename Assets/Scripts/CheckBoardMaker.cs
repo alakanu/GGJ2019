@@ -48,7 +48,6 @@ public class CheckBoardMaker : MonoBehaviour
     {
         Vector3 colliderSize = new Vector3(Distance - Separation, 15f, Distance - Separation);
         Vector3 offSetGridToCenter = new Vector3(((Distance * lateralSize) / 2f) - Distance / 2f, 0f, ((Distance * lateralSize) / 2f) - Distance / 2f);
-        //Fuck the for loops, It's a JAMMMMMM!
         BoxColliders = new List<BoxCollider>();
         int totalBoxes = lateralSize * lateralSize;
 
@@ -81,7 +80,8 @@ public class CheckBoardMaker : MonoBehaviour
             tileName += "_River";
         }
         //Don't add after this index!
-        tileName += "_ind:" + currentIndex;
+        GridTile gridTile = BoxColliders[currentIndex].gameObject.AddComponent<GridTile>();
+        gridTile.Index = currentIndex;
         BoxColliders[currentIndex].name = tileName;
         BoxColliders[currentIndex].tag = CHECKBOARDBOXESTAG;
         // Ignore Raycast layer

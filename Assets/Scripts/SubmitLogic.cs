@@ -12,8 +12,6 @@ public class SubmitLogic : MonoBehaviour
 
     int[] maskForCheckIndex = { -1, +1, -3, +3 };
 
-    const string INDSUBSTRING = "_ind:";
-
     Dictionary<int, Character> _characterMap = new Dictionary<int, Character>();
 
     public void SubmitButtonPressed()
@@ -22,51 +20,42 @@ public class SubmitLogic : MonoBehaviour
 
         // Get all character tiles boxes
         GameObject[] colliders = GameObject.FindGameObjectsWithTag(CheckBoardMaker.CHECKBOARDBOXESTAG);
-        GameObject[] characters = GameObject.FindGameObjectsWithTag("Character");
 
-        foreach (var item in characters)
+        foreach (var item in colliders)
         {
-            (item.GetComponent<CharacterObject>()).characterRef.totalScore = 0;
+            GridTile tile = item.GetComponent<GridTile>();
+            tile.character.totalScore = 0;
+            _characterMap.Add(tile.Index, tile.character);
+
+            Character referenceChar = tile.character;
+
+            if (name.Contains(referenceChar.likeMapSide.ToString()))
+            {
+                referenceChar.totalScore += likedMapSideBonus;
+            }
+            if (name.Contains(referenceChar.dislikeMapSide.ToString()))
+            {
+                referenceChar.totalScore -= dislikedMapSideMalus;
+            }
         }
 
-        for (int i = 0; i < colliders.Length; i++)
+        foreach (var evaluatedCharacter in _characterMap)
         {
-            BoxCollider boxCollider = colliders[i].GetComponent<BoxCollider>();
-            string name = boxCollider.name;
-
-            // First count the points for nearby MapSides
-            for (int j = 0; j < characters.Length; j++)
+            foreach (var index in maskForCheckIndex)
             {
-                if (boxCollider.bounds.Contains(characters[j].transform.position))
+                Character otherCharacter;
+                if (_characterMap.TryGetValue(evaluatedCharacter.Key + index, out otherCharacter))
                 {
-                    Character referenceChar = (characters[j].GetComponent<CharacterObject>()).characterRef;
-
-                    if (name.Contains(referenceChar.likeMapSide.ToString()))
+                    if (evaluatedCharacter.Value.likeCharacter == otherCharacter.Name)
                     {
-                        referenceChar.totalScore += likedMapSideBonus;
+                        evaluatedCharacter.Value.totalScore += likedCharacterBonus;
                     }
-                    if (name.Contains(referenceChar.dislikeMapSide.ToString()))
+                    else if (evaluatedCharacter.Value.dislikeCharacter == otherCharacter.Name)
                     {
-                        referenceChar.totalScore -= dislikedMapSideMalus;
-                    }
-
-                    string indString = name.Substring(name.IndexOf(INDSUBSTRING) + INDSUBSTRING.Length);
-                    int index = int.Parse(indString);
-                    if (_characterMap.ContainsKey(index) == false)
-                    {
-                        _characterMap.Add(index, referenceChar);
+                        evaluatedCharacter.Value.totalScore += likedCharacterBonus;
                     }
                 }
             }
-
-            foreach (var item in _characterMap)
-            {
-                if(_characterMap.ContainsKey())
-            }
         }
-                // sum malus and bonus
-                // start Playing Epilogue dialogues
     }
-
-
 }
