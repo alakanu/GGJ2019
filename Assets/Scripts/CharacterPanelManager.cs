@@ -15,12 +15,18 @@ class CharacterPanelManager : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        hintPanel = GetComponentInChildren<HintPanel>();
+
         int length = characters.Length;
         for (int i = 0; i < length; ++i)
         {
             int index = i;
-            characters[i].onClick.AddListener(() => OnCharacterSelected(index));
+            draggables[i].gameObject.SetActive(false);
+            characters[i].onClick.AddListener(
+                () =>
+                {
+                    OnCharacterSelected(index);
+                }
+                );
             var triggers = characters[i].GetComponent<EventTrigger>().triggers;
             var entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.BeginDrag;
@@ -39,10 +45,7 @@ class CharacterPanelManager : MonoBehaviour
         }
 
         submit.onClick.AddListener(Submit);
-    }
 
-    public void DisplayHintsForCharacter(int index, Character character)
-    {
 
     }
 

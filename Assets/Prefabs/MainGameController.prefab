@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b58fac3bfc9b64fa87b223ef32948a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueUI: {fileID: 0}
+  charactersUI: {fileID: 0}
+  hintPanel: {fileID: 0}

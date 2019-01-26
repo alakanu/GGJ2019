@@ -7,10 +7,47 @@ class HintPanel : MonoBehaviour
     void Start()
     {
         lines = GetComponentsInChildren<Text>();
+        gameObject.SetActive(false);
     }
 
-    public void DisplayCharacterHints(Button characterButton, Character character)
+    public void DisplayCharacterHints(Character character)
     {
+        gameObject.SetActive(true);
+
+        int i = 0;
+
+        if (character.likeCharacter != null)
+        {
+            lines[i].gameObject.SetActive(true);
+            lines[i].text = "Likes " + character.likeCharacter;
+            ++i;
+        }
+
+        if (character.dislikeCharacter != null)
+        {
+            lines[i].gameObject.SetActive(true);
+            lines[i].text = "Dislikes " + character.dislikeCharacter;
+            ++i;
+        }
+
+        if (character.likeMapSide != MapSide.NotDiscovered)
+        {
+            lines[i].gameObject.SetActive(true);
+            lines[i].text = "Likes " + character.likeMapSide;
+            ++i;
+        }
+
+        if (character.dislikeMapSide != MapSide.NotDiscovered)
+        {
+            lines[i].gameObject.SetActive(true);
+            lines[i].text = "Dislikes " + character.dislikeMapSide;
+            ++i;
+        }
+
+        for (; i < lines.Length; i++)
+        {
+            lines[i].gameObject.SetActive(false);
+        }
 
     }
 
