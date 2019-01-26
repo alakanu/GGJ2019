@@ -33,9 +33,10 @@ public class SubmitLogic : MonoBehaviour
         {
             BoxCollider boxCollider = colliders[i].GetComponent<BoxCollider>();
             string name = boxCollider.name;
+
+            // First count the points for nearby MapSides
             for (int j = 0; j < characters.Length; j++)
             {
-
                 if (boxCollider.bounds.Contains(characters[j].transform.position))
                 {
                     Character referenceChar = (characters[j].GetComponent<CharacterObject>()).characterRef;
@@ -56,6 +57,11 @@ public class SubmitLogic : MonoBehaviour
                         _characterMap.Add(index, referenceChar);
                     }
                 }
+            }
+
+            foreach (var item in _characterMap)
+            {
+                if(_characterMap.ContainsKey())
             }
         }
                 // sum malus and bonus
