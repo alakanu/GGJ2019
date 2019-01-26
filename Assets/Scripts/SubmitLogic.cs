@@ -61,7 +61,7 @@ public class SubmitLogic : MonoBehaviour
 
             foreach (var item in _characterMap)
             {
-                if(_characterMap.ContainsKey())
+                //if(_characterMap.ContainsKey())
             }
         }
                 // sum malus and bonus
