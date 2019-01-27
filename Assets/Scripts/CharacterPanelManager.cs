@@ -27,7 +27,6 @@ class CharacterPanelManager : MonoBehaviour
 
     public void EnablePanel()
     {
-        gameObject.SetActive(true);
         mainCamera = FindObjectOfType<Camera>();
         audioSource = GetComponent<AudioSource>();
         int length = characterButtons.Length;
@@ -109,6 +108,7 @@ class CharacterPanelManager : MonoBehaviour
         }
 
         submit.interactable = false;
+        gameObject.SetActive(true);
     }
 
     void UpdatePortraits(int selected)
@@ -122,8 +122,7 @@ class CharacterPanelManager : MonoBehaviour
 
     void Submit()
     {
-        Debug.Log("Submit");
-        // Characters say if they're happy or not. Maybe explode.
+        FindObjectOfType<SubmitLogic>().SubmitButtonPressed();
     }
 
     void OnBeginDrag(int index)

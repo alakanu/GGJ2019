@@ -27,12 +27,12 @@ class EpiloguePanelManager : MonoBehaviour
 
     public void DisplayEndings(Character[] characters)
     {
+        gameObject.SetActive(true);
         StartCoroutine(Display(characters));
     }
 
     IEnumerator Display(Character[] characters)
     {
-        gameObject.SetActive(true);
         for (int i = 0; i < characters.Length; i++)
         {
             Character character = characters[i];
