@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 class CharacterPanelManager : MonoBehaviour
 {
     public event Action<int> OnCharacterSelected = i => { };
@@ -12,6 +13,10 @@ class CharacterPanelManager : MonoBehaviour
     public Button submit;
     public Sprite[] characterPortraitsNormal;
     public Sprite[] characterPortraitsHighlighted;
+    public AudioClip dragClip;
+    public AudioClip dropClip;
+
+    AudioSource audioSource;
 
     public void SetCharacters(Character[] chars)
     {
@@ -21,7 +26,7 @@ class CharacterPanelManager : MonoBehaviour
     void Start()
     {
         mainCamera = FindObjectOfType<Camera>();
-
+        audioSource = GetComponent<AudioSource>();
         int length = characterButtons.Length;
         for (int i = 0; i < length; ++i)
         {
@@ -127,6 +132,8 @@ class CharacterPanelManager : MonoBehaviour
     void OnBeginDrag(int index)
     {
         draggables[index].gameObject.SetActive(true);
+        audioSource.clip = dragClip;
+        audioSource.Play();
     }
 
     void OnDrag(int index)
@@ -145,6 +152,8 @@ class CharacterPanelManager : MonoBehaviour
 
     void OnEndDrag(int index)
     {
+        audioSource.clip = dropClip;
+        audioSource.Play();
         // Remove character from board if it was already there.
         for (int i = 0; i < 9; ++i)
         {
