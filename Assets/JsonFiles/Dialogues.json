@@ -611,5 +611,143 @@
 				"Line": "No fences or walls. I’m not moving from one box to another."
 			}
 		]
+	},
+	"ExecutiveDialogue":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Executive", 
+				"Line": "Say, didn’t I pay for the last Colony Planner update?"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "3.0 is the latest Colony Planner software."
+			},
+			{
+				"Speaker":"Executive", 
+				"Line": "2.5 looked a whole lot better than you do."
+			}
+		],
+		"Options":
+		[
+			{
+				"OptionText": "Why did you leave Earth?",
+				"NextDialogue": "ExecutiveDialogueA",
+				"Hint": "Wants a second beach house."
+			},
+			{
+				"OptionText": "What do you think of Kepler?",
+				"NextDialogue": "ExecutiveDialogueB",
+				"Hint":"Doesn’t like the cold."
+			},
+			{
+				"OptionText": "What does home mean to you?",
+				"NextDialogue": "ExecutiveDialogueC"
+			}
+		]
+	},
+	"ExecutiveDialogueA":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Executive", 
+				"Line": "Because I can! I don’t know what you think success is, but having two beach homes on the same planet? Sure, if you want to tell the world “Look at me, I’m only a billionaire! I can’t even afford to build a colony ship!”"
+			}
+		]
+	},
+	"ExecutiveDialogueB":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Executive", 
+				"Line": "Better be worth the money. I was promised ore deposits in those mountains. Instead I got an expensive postcard background. A freezing, expensive postcard background. Do me a favour and put me somewhere I can actually get some sun, cold air isn’t flattering to a fella, know what I mean?"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "I do not."
+			}
+		]
+	},
+	"ExecutiveDialogueC":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Executive", 
+				"Line": "What kind of dumb question is that?"
+			}
+		]
+	},
+	"DoctorDialogue":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"AI", 
+				"Line": "Hello, Doctor."
+			},
+			{
+				"Speaker":"Doctor", 
+				"Line": "Have you seen my smallpox samples anywhere? I think I left them in the boarding lounge."
+			}
+		],
+		"Options":
+		[
+			{
+				"OptionText": "Why did you leave Earth?",
+				"NextDialogue": "DoctorDialogueA",
+				"Hint": "Wants to study plants."
+			},
+			{
+				"OptionText": "What do you think of Kepler?",
+				"NextDialogue": "DoctorDialogueB",
+				"Hint":"Allergic to dogs."
+			},
+			{
+				"OptionText": "What does home mean to you?",
+				"NextDialogue": "DoctorDialogueC"
+			}
+		]
+	},
+	"DoctorDialogueA":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Doctor", 
+				"Line": "For the good of humanity. I’ll be the first person to study any of this planet’s native lifeforms, just one alien mushroom could hold the key to curing every disease known to man."
+			}
+		]
+	},
+	"DoctorDialogueB":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Doctor", 
+				"Line": "It’s almost the perfect environment for medical research."
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "Almost?"
+			},
+			{
+				"Speaker":"Doctor", 
+				"Line": "That family smuggled their dogs aboard, ready to trample all over the ecosystem… and their shedding sets off my allergies!"
+			}
+		]
+	},
+	"DoctorDialogueC":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Doctor", 
+				"Line": "Home is… the people I can save."
+			}
+		]
 	}
 }

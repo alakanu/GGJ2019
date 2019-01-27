@@ -61,7 +61,7 @@
 	},
 	"Executive":
 	{
-		"StartingDialogue":"ProfessorDialogue",
+		"StartingDialogue":"ExecutiveDialogue",
 		"LikedMapSide":"Beach",
 		"DislikedMapSide":"Mountains",
 		"HappyEnding":"yolo",
@@ -69,12 +69,10 @@
 	},
 	"Doctor":
 	{
-		"StartingDialogue":"ProfessorDialogue",
-		"LikedCharacter":"Astronomer",
-		"DislikedCharacter":"Executive",
-		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach",
+		"StartingDialogue":"DoctorDialogue",
+		"DislikedCharacter":"Angler",
+		"LikedMapSide":"Forest",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
-	},
+	}
 }

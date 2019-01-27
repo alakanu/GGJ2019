@@ -11,6 +11,7 @@ ModelImporter:
     100010: Observatory
     100012: ProfessorHouse
     100014: Tent
+    100016: Greenhouse
     400000: Athlodome
     400002: Bunker
     400004: Campfire
@@ -19,6 +20,7 @@ ModelImporter:
     400010: Observatory
     400012: ProfessorHouse
     400014: Tent
+    400016: Greenhouse
     2100000: Stone
     2100002: Darkness
     2100004: Metal
@@ -30,6 +32,7 @@ ModelImporter:
     2100016: Mountain
     2100018: Fire
     2100020: Glass
+    2100022: Leaves
     2300000: Athlodome
     2300002: Bunker
     2300004: Campfire
@@ -37,6 +40,7 @@ ModelImporter:
     2300008: Observatory
     2300010: ProfessorHouse
     2300012: Tent
+    2300014: Greenhouse
     3300000: Athlodome
     3300002: Bunker
     3300004: Campfire
@@ -44,6 +48,7 @@ ModelImporter:
     3300008: Observatory
     3300010: ProfessorHouse
     3300012: Tent
+    3300014: Greenhouse
     4300000: Bunker
     4300002: Athlodome
     4300004: Tent
@@ -51,6 +56,7 @@ ModelImporter:
     4300008: Observatory
     4300010: ProfessorHouse
     4300012: Dome
+    4300014: Greenhouse
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
