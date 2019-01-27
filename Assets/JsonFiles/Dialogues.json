@@ -306,7 +306,7 @@
 		[
 			{
 				"OptionText": "Why did you leave Earth?",
-				"NextDialogue": "AnglerDialogueA",
+				"NextDialogue": "AnglerDialogueA"
 			},
 			{
 				"OptionText": "What do you think of Kepler?",

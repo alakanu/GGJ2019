@@ -45,8 +45,7 @@
 	},
 	"Captain":
 	{
-		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"Home is what the colony needs.",
+		"StartingDialogue":"ProfessorDialogue",
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
@@ -56,8 +55,7 @@
 	},
 	"Prepper":
 	{
-		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"None of your business.",
+		"StartingDialogue":"ProfessorDialogue",
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
@@ -67,8 +65,7 @@
 	},
 	"Athlete":
 	{
-		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"Just like Earth.",
+		"StartingDialogue":"ProfessorDialogue",
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
@@ -78,8 +75,7 @@
 	},
 	"Executive":
 	{
-		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"My own rules.",
+		"StartingDialogue":"ProfessorDialogue",
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
@@ -89,8 +85,7 @@
 	},
 	"Doctor":
 	{
-		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"Where I’m needed.",
+		"StartingDialogue":"ProfessorDialogue",
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
