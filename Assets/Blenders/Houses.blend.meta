@@ -11,6 +11,7 @@ ModelImporter:
     100010: Observatory
     100012: ProfessorHouse
     100014: Tent
+    100016: Greenhouse
     400000: Athlodome
     400002: Bunker
     400004: Campfire
@@ -19,6 +20,7 @@ ModelImporter:
     400010: Observatory
     400012: ProfessorHouse
     400014: Tent
+    400016: Greenhouse
     2100000: Stone
     2100002: Darkness
     2100004: Metal
@@ -30,6 +32,7 @@ ModelImporter:
     2100016: Mountain
     2100018: Fire
     2100020: Glass
+    2100022: Leaves
     2300000: Athlodome
     2300002: Bunker
     2300004: Campfire
@@ -37,6 +40,7 @@ ModelImporter:
     2300008: Observatory
     2300010: ProfessorHouse
     2300012: Tent
+    2300014: Greenhouse
     3300000: Athlodome
     3300002: Bunker
     3300004: Campfire
@@ -44,6 +48,7 @@ ModelImporter:
     3300008: Observatory
     3300010: ProfessorHouse
     3300012: Tent
+    3300014: Greenhouse
     4300000: Bunker
     4300002: Athlodome
     4300004: Tent
@@ -51,9 +56,70 @@ ModelImporter:
     4300008: Observatory
     4300010: ProfessorHouse
     4300012: Dome
+    4300014: Greenhouse
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Darkness
+    second: {fileID: 2100000, guid: 29add2f4293bb0648a220c99bd02c323, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fire
+    second: {fileID: 2100000, guid: 54e5cb385c55b7d4cb8a80db648a2a6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: dfb90597d7da8094da0b16ed1d9234c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves
+    second: {fileID: 2100000, guid: 6454ca9a538d2e24ebbbecdc59dba1dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 94fefbc729f58ad478a3bcbe916e697c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mountain
+    second: {fileID: 2100000, guid: baaffd58e58e7314593394c4a8f45438, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Net
+    second: {fileID: 2100000, guid: 789ee88608d0a8c41a48c5628f204f18, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RunningTrack
+    second: {fileID: 2100000, guid: 8c2cf24e144671f43bbc7061f3db85ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sand
+    second: {fileID: 2100000, guid: fad033effc9ef2e4d88da793bb47caf9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Snow
+    second: {fileID: 2100000, guid: 61a0f18436ab83c448a3b83f48377b79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone
+    second: {fileID: 2100000, guid: 5fc9ec607ab73c04ca695f3bb49421a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Volleyball
+    second: {fileID: 2100000, guid: a32be72e02679a24e8738a5918fc5e7d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
