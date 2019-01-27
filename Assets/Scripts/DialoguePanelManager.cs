@@ -55,6 +55,7 @@ class DialoguePanelManager : MonoBehaviour
     {
         moveToNextLine = false;
         DialogueText.text = string.Empty;
+        SpeakerNameText.text = string.Empty;
         for (int i = 0; i < AnswerButtons.Length; i++)
         {
             AnswerButtons[i].gameObject.SetActive(false);
@@ -67,7 +68,9 @@ class DialoguePanelManager : MonoBehaviour
         DialogueLine[] lines = currentDialogue.DialogueBody;
         while (currentLineIndex < lines.Length)
         {
-            yield return typeWriter.WriteText(lines[currentLineIndex].Line, DialogueText);
+            DialogueLine line = lines[currentLineIndex];
+            SpeakerNameText.text = line.Speaker + ":";
+            yield return typeWriter.WriteText(line.Line, DialogueText);
 
             if (currentLineIndex != lines.Length - 1)
             {
@@ -114,6 +117,8 @@ class DialoguePanelManager : MonoBehaviour
 
     [SerializeField]
     Text DialogueText;
+    [SerializeField]
+    Text SpeakerNameText;
     [SerializeField]
     Button[] AnswerButtons;
 

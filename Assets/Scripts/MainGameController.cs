@@ -7,6 +7,8 @@ class MainGameController : MonoBehaviour
     public CharacterPanelManager charactersUI;
     public HintPanelManager hintPanel;
     public EpiloguePanelManager epilogueUI;
+    public AudioManager audioManager;
+
 
     void Start()
     {
@@ -17,6 +19,7 @@ class MainGameController : MonoBehaviour
         currentCharacter = charactersDict["AI"];
         dialogueUI.DisplayDialogue(currentCharacter.CurrentDialogue);
         charactersUI.SetCharacters(characters);
+        audioManager.PlayIntro();
     }
 
     void OnAnswerSelected(int answerIndex)
@@ -51,6 +54,11 @@ class MainGameController : MonoBehaviour
         }
         else
         {
+            if (currentCharacter.Name == "AI")
+            {
+                audioManager.PlayLoop();
+                charactersUI.EnablePanel();
+            }
             currentCharacter = null;
             dialogueUI.ResetDialogues();
         }
@@ -68,6 +76,7 @@ class MainGameController : MonoBehaviour
         ending = true;
         dialogueUI.ResetDialogues();
         epilogueUI.DisplayEndings(characters);
+        audioManager.PlayEpilogue();
     }
 
     void Update()
@@ -86,7 +95,6 @@ class MainGameController : MonoBehaviour
     }
 
     bool ending;
-    AudioSource audioSource;
     Character currentCharacter;
     Dictionary<string, Character> charactersDict;
     Dictionary<string, Dialogue> dialogues;

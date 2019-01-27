@@ -4,6 +4,7 @@ class AudioManager : MonoBehaviour
 {
     public AudioClip Intro;
     public AudioClip Loop;
+    public AudioClip Epilogue;
 
     AudioSource audioSource;
 
@@ -22,6 +23,13 @@ class AudioManager : MonoBehaviour
     {
         audioSource.clip = Loop;
         audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    public void PlayEpilogue()
+    {
+        audioSource.clip = Epilogue;
+        audioSource.loop = false;
         audioSource.Play();
     }
 }

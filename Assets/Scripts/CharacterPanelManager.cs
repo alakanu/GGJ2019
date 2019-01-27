@@ -85,6 +85,13 @@ class CharacterPanelManager : MonoBehaviour
             else
                 Debug.LogWarning("Terrain collider not found.");
         }
+
+        gameObject.SetActive(false);
+    }
+
+    public void EnablePanel()
+    {
+        gameObject.SetActive(true);
     }
 
     void Submit()
