@@ -22,7 +22,7 @@ class Character
 enum MapSide
 {
     None,
-    Mountain,
+    Mountains,
     Beach,
     Forest,
     River
