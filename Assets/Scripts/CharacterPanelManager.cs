@@ -10,6 +10,8 @@ class CharacterPanelManager : MonoBehaviour
     public Button[] characterButtons;
     public Transform[] draggables;
     public Button submit;
+    public Sprite[] characterPortraitsNormal;
+    public Sprite[] characterPortraitsHighlighted;
 
     public void SetCharacters(Character[] chars)
     {
@@ -28,6 +30,7 @@ class CharacterPanelManager : MonoBehaviour
             characterButtons[i].onClick.AddListener(
                 () =>
                 {
+                    UpdatePortraits(index);
                     OnCharacterSelected(index);
                 }
                 );
@@ -84,6 +87,26 @@ class CharacterPanelManager : MonoBehaviour
                 cellPivots[i] = hit.point;
             else
                 Debug.LogWarning("Terrain collider not found.");
+        }
+
+        // Initialise character portraits.
+        for (int i = 0; i < 9; ++i)
+        {
+            ((Image) characterButtons[i].targetGraphic).sprite = characterPortraitsNormal[i];
+            var state = characterButtons[i].spriteState;
+            state.pressedSprite = characterPortraitsHighlighted[i];
+            state.highlightedSprite = characterPortraitsHighlighted[i];
+            state.disabledSprite = characterPortraitsNormal[i];
+            characterButtons[i].spriteState = state;
+        }
+    }
+
+    void UpdatePortraits(int selected)
+    {
+        for (int i = 0; i < 9; ++i)
+        {
+            ((Image) characterButtons[i].targetGraphic).sprite =
+                i == selected ? characterPortraitsHighlighted[i] : characterPortraitsNormal[i];
         }
     }
 
@@ -156,15 +179,6 @@ class CharacterPanelManager : MonoBehaviour
         }
 
         return cellHit;
-    }
-
-    void RemoveCharacterFromBoard(Character c)
-    {
-        for (int i = 0; i < 9; ++i)
-        {
-            if (boardCells[i].character.Name == characters[i].Name)
-                boardCells[i].character = null;
-        }
     }
 
     // Check if we are dragging from the board.
