@@ -47,3 +47,4 @@ MonoBehaviour:
   charactersUI: {fileID: 0}
   hintPanel: {fileID: 0}
   epilogueUI: {fileID: 0}
+  audioManager: {fileID: 0}
