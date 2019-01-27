@@ -44,6 +44,7 @@ class MainGameController : MonoBehaviour
             if (option.YieldsHint)
             {
                 currentCharacter.DiscoveredHints.Add(option.Hint);
+                hintPanel.DisplayCharacterHints(currentCharacter);
             }
 
             currentCharacter.CurrentDialogue = option.NextDialogue;
@@ -59,6 +60,7 @@ class MainGameController : MonoBehaviour
             currentCharacter.CurrentDialogue = currentCharacter.StartingDialogue;
             currentCharacter = null;
             dialogueUI.ResetDialogues();
+            hintPanel.ClearHintPanel();
         }
     }
 

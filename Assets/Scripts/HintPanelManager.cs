@@ -3,8 +3,7 @@ using UnityEngine.UI;
 
 class HintPanelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         lines = GetComponentsInChildren<Text>();
         gameObject.SetActive(false);
@@ -27,6 +26,11 @@ class HintPanelManager : MonoBehaviour
                 lines[i++].gameObject.SetActive(false);
             }
         }
+    }
+
+    public void ClearHintPanel()
+    {
+        gameObject.SetActive(false);
     }
 
     Text[] lines;
