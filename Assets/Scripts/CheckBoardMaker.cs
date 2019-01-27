@@ -17,7 +17,11 @@ public class CheckBoardMaker : MonoBehaviour
 #if !UNITY_EDITOR
     void Start()
     {
-        DestroyDebugCanvases();
+        foreach (var item in debugCanvases)
+	    {
+            Destroy(item);
+        }
+        debugCanvases.Clear();
     }
 
 #endif
