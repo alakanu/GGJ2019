@@ -15,41 +15,73 @@
 	"Astronomer":
 	{
 		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"A night sky they know by heart, wherever that may be."
+		"WhatIsHome":"A night sky they know by heart, wherever that may be.",
+		"LikedCharacter":"Astronomer",
+		"DislikedCharacter":"Executive",
+		"LikedMapSide":"Mountains",
+		"DislikedMapSide":"Beach"
 	},
 	"Ranger":
 	{
 		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"Their boots, a trail only they know."
+		"WhatIsHome":"Their boots, a trail only they know.",
+		"LikedCharacter":"Astronomer",
+		"DislikedCharacter":"Executive",
+		"LikedMapSide":"Mountains",
+		"DislikedMapSide":"Beach"
 	},
 	"Angler":
 	{
 		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"Where their children grow up."
+		"WhatIsHome":"Where their children grow up.",
+		"LikedCharacter":"Astronomer",
+		"DislikedCharacter":"Executive",
+		"LikedMapSide":"Mountains",
+		"DislikedMapSide":"Beach"
 	},
 	"Captain":
 	{
 		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"Home is what the colony needs."
+		"WhatIsHome":"Home is what the colony needs.",
+		"LikedCharacter":"Astronomer",
+		"DislikedCharacter":"Executive",
+		"LikedMapSide":"Mountains",
+		"DislikedMapSide":"Beach"
 	},
 	"Prepper":
 	{
 		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"None of your business."
+		"WhatIsHome":"None of your business.",
+		"LikedCharacter":"Astronomer",
+		"DislikedCharacter":"Executive",
+		"LikedMapSide":"Mountains",
+		"DislikedMapSide":"Beach"
 	},
 	"Athlete":
 	{
 		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"Just like Earth."
+		"WhatIsHome":"Just like Earth.",
+		"LikedCharacter":"Astronomer",
+		"DislikedCharacter":"Executive",
+		"LikedMapSide":"Mountains",
+		"DislikedMapSide":"Beach"
 	},
 	"Executive":
 	{
 		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"My own rules."
+		"WhatIsHome":"My own rules.",
+		"LikedCharacter":"Astronomer",
+		"DislikedCharacter":"Executive",
+		"LikedMapSide":"Mountains",
+		"DislikedMapSide":"Beach"
 	},
 	"Doctor":
 	{
 		"StartingDialogue":"Dialogue1",
-		"WhatIsHome":"Where I’m needed."
+		"WhatIsHome":"Where I’m needed.",
+		"LikedCharacter":"Astronomer",
+		"DislikedCharacter":"Executive",
+		"LikedMapSide":"Mountains",
+		"DislikedMapSide":"Beach"
 	},
 }
