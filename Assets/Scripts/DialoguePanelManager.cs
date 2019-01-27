@@ -78,6 +78,7 @@ class DialoguePanelManager : MonoBehaviour
             IntroStage(currentLineIndex);
             DialogueLine line = lines[currentLineIndex];
             SpeakerNameText.text = line.Speaker + ":";
+            SpeakerNameText.color = line.Speaker == "AI" ? AIColour : HumanColour;
             yield return typeWriter.WriteText(line.Line, DialogueText);
 
             if (currentLineIndex != lines.Length - 1)
@@ -127,6 +128,7 @@ class DialoguePanelManager : MonoBehaviour
         {
             DialogueLine line = lines[currentLineIndex];
             SpeakerNameText.text = line.Speaker + ":";
+            SpeakerNameText.color = line.Speaker == "AI" ? AIColour : HumanColour;
             yield return typeWriter.WriteText(line.Line, DialogueText);
 
             if (currentLineIndex != lines.Length - 1)
@@ -178,6 +180,10 @@ class DialoguePanelManager : MonoBehaviour
     Text SpeakerNameText;
     [SerializeField]
     Button[] AnswerButtons;
+    [SerializeField]
+    Color AIColour;
+    [SerializeField]
+    Color HumanColour;
 
     Text[] AnswerTexts;
 }
