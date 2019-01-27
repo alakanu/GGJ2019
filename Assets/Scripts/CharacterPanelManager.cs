@@ -99,6 +99,8 @@ class CharacterPanelManager : MonoBehaviour
             state.disabledSprite = characterPortraitsNormal[i];
             characterButtons[i].spriteState = state;
         }
+
+        submit.interactable = false;
     }
 
     void UpdatePortraits(int selected)
@@ -156,6 +158,15 @@ class CharacterPanelManager : MonoBehaviour
         {
             draggables[index].gameObject.SetActive(false);
         }
+
+        // Enable submit button if all cells are occupied.
+        bool allOccupied = true;
+        for (int i = 0; i < 9; ++i)
+        {
+            allOccupied = allOccupied && boardCells[i].character != null;
+        }
+
+        submit.interactable = allOccupied;
     }
 
     // cellHit == -1 means no cell hit.
