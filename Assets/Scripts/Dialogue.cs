@@ -1,7 +1,7 @@
 ﻿class Dialogue
 {
     public DialogueLine[] DialogueBody;
-    public Answer[] Options;
+    public Option[] Options;
     public bool HasOptions { get { return Options.Length != 0; } }
 }
 
@@ -9,7 +9,7 @@
 class DialogueJson
 {
     public DialogueLine[] DialogueBody;
-    public AnswerJson[] Options;
+    public OptionJson[] Options;
 }
 
 [System.Serializable]

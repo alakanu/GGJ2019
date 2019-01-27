@@ -78,6 +78,7 @@ class DialoguePanelManager : MonoBehaviour
             IntroStage(currentLineIndex);
             DialogueLine line = lines[currentLineIndex];
             SpeakerNameText.text = line.Speaker + ":";
+            SpeakerNameText.color = line.Speaker == "AI" ? AIColour : HumanColour;
             yield return typeWriter.WriteText(line.Line, DialogueText);
 
             if (currentLineIndex != lines.Length - 1)
@@ -94,12 +95,12 @@ class DialoguePanelManager : MonoBehaviour
 
         if (currentDialogue.HasOptions)
         {
-            Answer[] answers = currentDialogue.Options;
+            Option[] answers = currentDialogue.Options;
             int i;
             for (i = 0; i < answers.Length; i++)
             {
                 AnswerButtons[i].gameObject.SetActive(true);
-                AnswerTexts[i].text = answers[i].AnswerText;
+                AnswerTexts[i].text = answers[i].OptionText;
             }
 
             for (; i < AnswerTexts.Length; i++)
@@ -127,6 +128,7 @@ class DialoguePanelManager : MonoBehaviour
         {
             DialogueLine line = lines[currentLineIndex];
             SpeakerNameText.text = line.Speaker + ":";
+            SpeakerNameText.color = line.Speaker == "AI" ? AIColour : HumanColour;
             yield return typeWriter.WriteText(line.Line, DialogueText);
 
             if (currentLineIndex != lines.Length - 1)
@@ -143,12 +145,12 @@ class DialoguePanelManager : MonoBehaviour
 
         if (currentDialogue.HasOptions)
         {
-            Answer[] answers = currentDialogue.Options;
+            Option[] answers = currentDialogue.Options;
             int i;
             for (i = 0; i < answers.Length; i++)
             {
                 AnswerButtons[i].gameObject.SetActive(true);
-                AnswerTexts[i].text = answers[i].AnswerText;
+                AnswerTexts[i].text = answers[i].OptionText;
             }
 
             for (; i < AnswerTexts.Length; i++)
@@ -178,6 +180,10 @@ class DialoguePanelManager : MonoBehaviour
     Text SpeakerNameText;
     [SerializeField]
     Button[] AnswerButtons;
+    [SerializeField]
+    Color AIColour;
+    [SerializeField]
+    Color HumanColour;
 
     Text[] AnswerTexts;
 }

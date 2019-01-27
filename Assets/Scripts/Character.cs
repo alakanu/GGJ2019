@@ -1,4 +1,6 @@
-﻿class Character
+﻿using System.Collections.Generic;
+
+class Character
 {
     public string Name;
     public Dialogue CurrentDialogue;
@@ -12,14 +14,15 @@
     public string HappyEnding;
     public string SadEnding;
 
-    public bool[] Discoveries;
+    public HashSet<string> DiscoveredHints;
 
     public int totalScore;
 }
 
 enum MapSide
 {
-    Mountains,
+    None,
+    Mountain,
     Beach,
     Forest,
     River
