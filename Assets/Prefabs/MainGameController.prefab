@@ -48,3 +48,5 @@ MonoBehaviour:
   hintPanel: {fileID: 0}
   epilogueUI: {fileID: 0}
   audioManager: {fileID: 0}
+  terrain: {fileID: 0}
+  forest: {fileID: 0}
