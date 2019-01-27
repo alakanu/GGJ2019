@@ -542,5 +542,74 @@
 				"Line": "Just put me somewhere I don’t have leave someday, got it? I had a nice thing going back on Earth, a hideout in the woods, but I never knew if it was gonna be there tomorrow."
 			}
 		]
+	},
+	"AthleteDialogue":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"AI", 
+				"Line": "Hello, Colonist, I see you are busy."
+			},
+			{
+				"Speaker":"Athlete", 
+				"Line": "Two more laps! I’m setting this planet’s world records - who says a marathon needs more than one runner anyway?"
+			}
+		],
+		"Options":
+		[
+			{
+				"OptionText": "Why did you leave Earth?",
+				"NextDialogue": "AthleteDialogueA",
+				"Hint": "Wants to run on the beach."
+			},
+			{
+				"OptionText": "What do you think of Kepler?",
+				"NextDialogue": "AthleteDialogueB",
+				"Hint":"Wants to play music freely."
+			},
+			{
+				"OptionText": "What does home mean to you?",
+				"NextDialogue": "AthleteDialogueC"
+			}
+		]
+	},
+	"AthleteDialogueA":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Athlete", 
+				"Line": "I’m tired of treadmills. I ran on a beach once, and now I’m here I’m not going to run on anything else."
+			}
+		]
+	},
+	"AthleteDialogueB":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Athlete", 
+				"Line": "I think I’m going to like it…"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "You sound unsure."
+			},
+			{
+				"Speaker":"Athlete", 
+				"Line": "The first thing that Professor said to me is that I better not be planning to use my speaker setup. How am I supposed to run without music?"
+			}
+		]
+	},
+	"AthleteDialogueC":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Athlete", 
+				"Line": "No fences or walls. I’m not moving from one box to another."
+			}
+		]
 	}
 }

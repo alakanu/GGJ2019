@@ -53,21 +53,17 @@
 	},
 	"Athlete":
 	{
-		"StartingDialogue":"ProfessorDialogue",
-		"LikedCharacter":"Astronomer",
-		"DislikedCharacter":"Executive",
-		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach",
+		"StartingDialogue":"AthleteDialogue",
+		"DislikedCharacter":"Professor",
+		"LikedMapSide":"Beach",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
 	},
 	"Executive":
 	{
 		"StartingDialogue":"ProfessorDialogue",
-		"LikedCharacter":"Astronomer",
-		"DislikedCharacter":"Executive",
-		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach",
+		"LikedMapSide":"Beach",
+		"DislikedMapSide":"Mountains",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
 	},

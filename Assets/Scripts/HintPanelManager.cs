@@ -26,6 +26,10 @@ class HintPanelManager : MonoBehaviour
                 lines[i++].gameObject.SetActive(false);
             }
         }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     Text[] lines;
