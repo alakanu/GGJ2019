@@ -12,6 +12,11 @@ class EpiloguePanelManager : MonoBehaviour
     void Start()
     {
         epilogueText = GetComponentInChildren<Text>();
+        for (int i = 0; i < happyEndingPortraits.Length; i++)
+        {
+            happyEndingPortraits[i].gameObject.SetActive(false);
+            sadEndingPortraits[i].gameObject.SetActive(false);
+        }
         gameObject.SetActive(false);
     }
 
@@ -44,7 +49,7 @@ class EpiloguePanelManager : MonoBehaviour
             epilogueText.text = string.Empty;
             yield return typeWriter.WriteText(happyEnding ? character.HappyEnding : character.SadEnding, epilogueText,
                 typeWriterSound);
-            
+
             while (!moveNextEnding)
             {
                 yield return null;
