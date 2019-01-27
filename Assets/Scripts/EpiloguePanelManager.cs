@@ -7,6 +7,7 @@ class EpiloguePanelManager : MonoBehaviour
 {
     public Image[] happyEndingPortraits;
     public Image[] sadEndingPortraits;
+    public AudioSource typeWriterSound;
 
     void Start()
     {
@@ -41,7 +42,9 @@ class EpiloguePanelManager : MonoBehaviour
             happyEndingPortraits[i].gameObject.SetActive(happyEnding);
             sadEndingPortraits[i].gameObject.SetActive(!happyEnding);
             epilogueText.text = string.Empty;
-            yield return typeWriter.WriteText(happyEnding ? character.HappyEnding : character.SadEnding, epilogueText);
+            yield return typeWriter.WriteText(happyEnding ? character.HappyEnding : character.SadEnding, epilogueText,
+                typeWriterSound);
+            
             while (!moveNextEnding)
             {
                 yield return null;

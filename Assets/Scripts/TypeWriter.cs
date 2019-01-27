@@ -12,7 +12,7 @@ class TypeWriter
         }
     }
 
-    public IEnumerator WriteText(string text, Text uiText)
+    public IEnumerator WriteText(string text, Text uiText, AudioSource audio)
     {
         fastForward = false;
         writing = true;
@@ -30,6 +30,8 @@ class TypeWriter
                 uiText.text = text.Substring(0, ++parsedCharactersCount);
                 yield return waitBetweenEachLetter;
             }
+
+            audio.Play();
         }
 
         writing = false;
