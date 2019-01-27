@@ -541,7 +541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &813157318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4002,7 +4002,8 @@ MonoBehaviour:
   likedMapSideBonus: 1
   dislikedMapSideMalus: 1
   likedCharacterBonus: 1
-  dislikedCharacterBonus: 1
+  dislikedCharacterMalus: 1
+  notDislikeBonus: 1
 --- !u!82 &4078199047180106154
 AudioSource:
   m_ObjectHideFlags: 0

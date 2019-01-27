@@ -484,7 +484,7 @@
 			},
 			{
 				"OptionText": "What do you think of Kepler?",
-				"NextDialogue": "PrepperDialogueB",
+				"NextDialogue": "PrepperDialogueB"
 			},
 			{
 				"OptionText": "What does home mean to you?",

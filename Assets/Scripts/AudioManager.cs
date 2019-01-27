@@ -5,6 +5,7 @@ class AudioManager : MonoBehaviour
     public AudioClip Intro;
     public AudioClip Loop;
     public AudioClip Epilogue;
+    public AudioClip PerfectEpilogue;
 
     AudioSource audioSource;
 
@@ -26,9 +27,9 @@ class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
-    public void PlayEpilogue()
+    public void PlayEpilogue(bool isPerfectEnding)
     {
-        audioSource.clip = Epilogue;
+        audioSource.clip = isPerfectEnding ? PerfectEpilogue : Epilogue;
         audioSource.loop = false;
         audioSource.Play();
     }

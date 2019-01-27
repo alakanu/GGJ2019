@@ -79,7 +79,20 @@ class MainGameController : MonoBehaviour
         ending = true;
         dialogueUI.ResetDialogues();
         epilogueUI.DisplayEndings(characters);
-        audioManager.PlayEpilogue();
+
+        audioManager.PlayEpilogue(IsPerfectEnding());
+    }
+
+    bool IsPerfectEnding()
+    {
+        for (int i = 0; i < characters.Length; i++)
+        {
+            if (characters[i].totalScore <= 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     void Update()
