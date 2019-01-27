@@ -1,65 +1,22 @@
 fileFormatVersion: 2
-guid: 2de14709fbadb7d4d98b02085c6b4b34
+guid: cd5b3f19bc404814f893b5642dbc904d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Athlodome
-    100002: Bunker
-    100004: Campfire
-    100006: Dome
-    100008: Hospital
-    100010: //RootNode
-    100012: Observatory
-    100014: ProfessorHouse
-    100016: Tent
-    400000: Athlodome
-    400002: Bunker
-    400004: Campfire
-    400006: Dome
-    400008: Hospital
-    400010: //RootNode
-    400012: Observatory
-    400014: ProfessorHouse
-    400016: Tent
-    2100000: Snow
-    2100002: Leaves
-    2100004: Darkness
-    2100006: Glass
-    2100008: Stone
-    2100010: Metal
-    2100012: Sand
-    2100014: Volleyball
-    2100016: Net
-    2100018: RunningTrack
-    2100020: Mountain
-    2100022: Fire
-    2300000: Athlodome
-    2300002: Bunker
-    2300004: Campfire
-    2300006: Dome
-    2300008: Hospital
-    2300010: Observatory
-    2300012: ProfessorHouse
-    2300014: Tent
-    3300000: Athlodome
-    3300002: Bunker
-    3300004: Campfire
-    3300006: Dome
-    3300008: Hospital
-    3300010: Observatory
-    3300012: ProfessorHouse
-    3300014: Tent
-    4300000: Hospital
-    4300002: Bunker
-    4300004: Athlodome
-    4300006: Tent
-    4300008: Campfire
-    4300010: Observatory
-    4300012: ProfessorHouse
-    4300014: Dome
+    100000: //RootNode
+    400000: //RootNode
+    2100000: unnamed
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: 86b070c74df11ec46875a09c7b676e2a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
