@@ -5,6 +5,9 @@ using UnityEngine.UI;
 [ExecuteInEditMode]
 public class CheckBoardMaker : MonoBehaviour
 {
+    public GameObject GridSelector;
+    public float GridSelectorSize = 1.0f;
+    public float VerticalOffset = 1.0f; 
     public float Distance;
     public float Separation;
     public int lateralSize = 3;
@@ -90,7 +93,7 @@ public class CheckBoardMaker : MonoBehaviour
             tileName += "_River";
         }
         //Don't add after this index!
-//        tileName += "ind:" + currentIndex;
+        tileName += "ind:" + currentIndex;
         GridTile gridTile = BoxColliders[currentIndex].gameObject.AddComponent<GridTile>();
         gridTile.Index = currentIndex;
         BoxColliders[currentIndex].name = tileName;
@@ -100,6 +103,11 @@ public class CheckBoardMaker : MonoBehaviour
         BoxColliders[currentIndex].transform.parent = this.transform;
         BoxColliders[currentIndex].size = boxSize;
         BoxColliders[currentIndex].transform.localPosition = new Vector3(((currentIndex / lateralSize) * Distance) - offSetGridToCenter.x, 0f, ((currentIndex % lateralSize) * Distance) - offSetGridToCenter.z);
+
+        GameObject gridSelector = GameObject.Instantiate(GridSelector, gameObject.transform);
+        gridSelector.transform.localScale = new Vector3(GridSelectorSize, GridSelectorSize, GridSelectorSize);
+        Vector3 gridPosition = gridSelector.transform.position;
+        gridSelector.transform.position = new Vector3(gridPosition.x, gridPosition.y + VerticalOffset, gridPosition.z);
     }
 
     void DestroyEverything()
@@ -107,7 +115,8 @@ public class CheckBoardMaker : MonoBehaviour
         Transform[] allgameObjects = this.transform.GetComponentsInChildren<Transform>();
         foreach (var item in allgameObjects)
         {
-            if (item == this.transform)
+            if (item== null ||
+                item == this.transform)
                 continue;
             DestroyImmediate(item.gameObject);
         }
