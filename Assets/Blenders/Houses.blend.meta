@@ -13,6 +13,7 @@ ModelImporter:
     100014: ProfessorHouse
     100016: Tent
     100018: FamilyHome
+    100020: Executive
     400000: Athlodome
     400002: Bunker
     400004: Campfire
@@ -23,6 +24,7 @@ ModelImporter:
     400014: ProfessorHouse
     400016: Tent
     400018: FamilyHome
+    400020: Executive
     2100000: Snow
     2100002: Leaves
     2100004: Darkness
@@ -36,6 +38,10 @@ ModelImporter:
     2100020: Mountain
     2100022: Fire
     2100024: Clouds
+    2100026: Water
+    2100028: Skin
+    2100030: Hair
+    2100032: Nose
     2300000: Athlodome
     2300002: Bunker
     2300004: Campfire
@@ -45,6 +51,7 @@ ModelImporter:
     2300012: ProfessorHouse
     2300014: Tent
     2300016: FamilyHome
+    2300018: Executive
     3300000: Athlodome
     3300002: Bunker
     3300004: Campfire
@@ -54,6 +61,7 @@ ModelImporter:
     3300012: ProfessorHouse
     3300014: Tent
     3300016: FamilyHome
+    3300018: Executive
     4300000: Hospital
     4300002: Bunker
     4300004: Athlodome
@@ -63,6 +71,7 @@ ModelImporter:
     4300012: ProfessorHouse
     4300014: Dome
     4300016: FamilyHome
+    4300018: Executive
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

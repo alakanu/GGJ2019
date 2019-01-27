@@ -1604,7 +1604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: 40a9f18e23085fa4897c9fe351c9463b,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &392221205367812759
@@ -1747,8 +1747,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 33efd3edb61d2574d86f2b70fa2dc3a2, type: 3}
   - {fileID: 21300000, guid: 097c77ae62cbd9845ab7663641b7115e, type: 3}
   - {fileID: 21300000, guid: ebf1c8a7786e26247850e6316c8226a7, type: 3}
-  dragClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2, type: 3}
-  dropClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2, type: 3}
+  dragClip: {fileID: 8300000, guid: e13e9fd5786f89e47bcd10162d1a7960, type: 3}
+  dropClip: {fileID: 8300000, guid: cc32ac1ef43e8584596a1d28d5ef4531, type: 3}
 --- !u!82 &6254664874268997150
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: 40a9f18e23085fa4897c9fe351c9463b,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &757197375302963216
@@ -2302,7 +2302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: f3114430aa76e5e4089a2a30223b6b30,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &1020854866965500190
@@ -2854,7 +2854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: 40a9f18e23085fa4897c9fe351c9463b,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &3185996989859802471
@@ -3086,7 +3086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: 4190c7d55bb0cda4786f5ba36753d8ee,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &3212235155412859040
@@ -3394,7 +3394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: 40a9f18e23085fa4897c9fe351c9463b,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &4078199047180106151
@@ -3643,7 +3643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: f3114430aa76e5e4089a2a30223b6b30,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &4340835710646191216
@@ -4050,7 +4050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: 40a9f18e23085fa4897c9fe351c9463b,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &5959194467011418267
@@ -4199,7 +4199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: 40a9f18e23085fa4897c9fe351c9463b,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &6243468485336735845
@@ -4348,7 +4348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: 40a9f18e23085fa4897c9fe351c9463b,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &6306915600320770819
@@ -4580,7 +4580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: 40a9f18e23085fa4897c9fe351c9463b,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &6494351470673763358
@@ -4831,7 +4831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: 40a9f18e23085fa4897c9fe351c9463b,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &7682408984493864743
@@ -5059,6 +5059,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: 55c5e4b6efb02374f80fdb761ca844a2,
+  buttonClickAudioClip: {fileID: 8300000, guid: 40a9f18e23085fa4897c9fe351c9463b,
     type: 3}
   audioSource: {fileID: 1139143845751096074}

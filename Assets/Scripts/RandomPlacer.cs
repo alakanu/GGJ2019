@@ -44,7 +44,7 @@ public class RandomPlacer : MonoBehaviour
         _boxCollider = GetComponent<BoxCollider>();
         for (int i = 0; i < NumOfObjectsToPlace; i++)
         {
-            GameObject possibleObjectToPlace = ObjectsToRandomlyPlace[Random.Range(0, ObjectsToRandomlyPlace.Length - 1)];
+            GameObject possibleObjectToPlace = ObjectsToRandomlyPlace[Random.Range(0, ObjectsToRandomlyPlace.Length)];
 
             for (int j = 0; j < MaxTries; j++)
             {
