@@ -99,7 +99,7 @@ class MainGameController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.anyKeyDown)
         {
             if (ending)
             {
