@@ -16,7 +16,7 @@
 [System.Serializable]
 class AnswerJson
 {
-    public string AnswerText;
+    public string OptionText;
     public string DiscoveryType;
     public string NextDialogue;
 }
@@ -24,8 +24,8 @@ class AnswerJson
 enum DiscoveryType
 {
     None,
-    CharacterLike,
-    CharacterDislike,
-    MapSideLike,
-    MapSideDislike
+    CharacterLiked,
+    CharacterDisliked,
+    MapSideLiked,
+    MapSideDisliked
 }

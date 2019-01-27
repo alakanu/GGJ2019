@@ -25,24 +25,24 @@ class MainGameController : MonoBehaviour
     void OnAnswerSelected(int answerIndex)
     {
         Dialogue currentDialogue = currentCharacter.CurrentDialogue;
-        if (currentDialogue.HasFinalChoice)
+        if (currentDialogue.HasOptions)
         {
-            Answer answer = currentDialogue.Answers[answerIndex];
+            Answer answer = currentDialogue.Options[answerIndex];
             if (answer.HasDiscovery)
             {
                 int index = -1;
                 switch (answer.DiscoveryType)
                 {
-                    case DiscoveryType.CharacterLike:
+                    case DiscoveryType.CharacterLiked:
                         index = 0;
                         break;
-                    case DiscoveryType.CharacterDislike:
+                    case DiscoveryType.CharacterDisliked:
                         index = 1;
                         break;
-                    case DiscoveryType.MapSideLike:
+                    case DiscoveryType.MapSideLiked:
                         index = 2;
                         break;
-                    case DiscoveryType.MapSideDislike:
+                    case DiscoveryType.MapSideDisliked:
                         index = 3;
                         break;
                 }
@@ -59,6 +59,7 @@ class MainGameController : MonoBehaviour
                 audioManager.PlayLoop();
                 charactersUI.EnablePanel();
             }
+            currentCharacter.CurrentDialogue = currentCharacter.StartingDialogue;
             currentCharacter = null;
             dialogueUI.ResetDialogues();
         }
@@ -66,6 +67,10 @@ class MainGameController : MonoBehaviour
 
     void OnCharacterSelected(int index)
     {
+        if (currentCharacter != null)
+        {
+            currentCharacter.CurrentDialogue = currentCharacter.StartingDialogue;
+        }
         currentCharacter = characters[index];
         dialogueUI.DisplayDialogue(currentCharacter.CurrentDialogue);
         hintPanel.DisplayCharacterHints(currentCharacter);

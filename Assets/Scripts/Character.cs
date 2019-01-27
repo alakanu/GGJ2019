@@ -1,8 +1,8 @@
 ﻿class Character
 {
     public string Name;
-    public string WhatIsHome;
     public Dialogue CurrentDialogue;
+    public Dialogue StartingDialogue;
 
     public string LikedCharacter;
     public string DislikedCharacter;
@@ -29,7 +29,6 @@ enum MapSide
 class CharacterJson
 {
     public string StartingDialogue;
-    public string WhatIsHome;
 
     public string LikedCharacter;
     public string DislikedCharacter;

@@ -5,76 +5,357 @@
 		[
 			{
 				"Speaker":"Captain", 
-				"Line": "captain line here"
+				"Line": "No, No, I’ve got it… I think. Has anyone used one of these before?"
 			},
 			{
 				"Speaker":"AI", 
-				"Line": "ai line here line here"
+				"Line": "Login accepted. Welcome to Colony Planner version 3.0. Hello again Captain, how was your journey?"
+			},
+			{
+				"Speaker":"Captain", 
+				"Line": "And hello again to you too. A thousand years of cryosleep isn’t anything like eight hours in bed. "
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "Was it not refreshing, Captain?"
+			},
+			{
+				"Speaker":"Captain", 
+				"Line": "Have you ever woken up half a galaxy away from where you went to sleep? Actually, I suppose you have, you know what? Let’s get started. Welcome to… our new home."
+			},
+			{
+				"Speaker":"Captain", 
+				"Line": "This is Kepler 442-b, one of Earth’s newest outposts. It doesn’t look like a colony yet, that’s why we have you."
+			},
+			{
+				"Speaker":"Captain", 
+				"Line": "The Human Colonisation Project guarantees every colonist their own plot of land, but not all spaces are created equal. We need you to plan our colony and make it a home, according to what each colonist wants and needs from their new life."
+			},
+			{
+				"Speaker":"Captain", 
+				"Line": "We didn’t have much time for icebreakers, I’m afraid, you’ll have to start from scratch. Get talking to our passengers to find out what makes them happy, make sure they like their neighbors too!"
 			}
 		]
 	},
-	"Dialogue1":
+	"ProfessorDialogue":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"AI", 
+				"Line": "Hello, Professor. I’m here to help you find your new home."
+			},
+			{
+				"Speaker":"Professor", 
+				"Line": "I’ve been reading about you, what a fascinating little program you are. How do you do?"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "I am not sure I understand the question, Professor."
+			}
+		],
+		"Options":
+		[
+			{
+				"OptionText": "Why did you leave Earth?",
+				"NextDialogue": "ProfessorDialogueA",
+				"DiscoveryType":"CharacterLiked"
+			},
+			{
+				"OptionText": "What do you think of Kepler?",
+				"NextDialogue": "ProfessorDialogueB"
+			},
+			{
+				"OptionText": "What does home mean to you?",
+				"NextDialogue": "ProfessorDialogueC",
+				"DiscoveryType":"CharacterDisliked"
+			}
+		]
+	},
+	"ProfessorDialogueA":
 	{
 		"DialogueBody":
 		[
 			{
 				"Speaker":"Professor", 
-				"Line": "you didn't study anything"
+				"Line": "This is confidential, isn’t it?"
 			},
 			{
 				"Speaker":"AI", 
-				"Line": "sorry pal!"
-			}
-		],
-		"Answers":
-		[
+				"Line": "My lips are figuratively sealed."
+			},
 			{
-				"AnswerText": "your answer text here",
-				"NextDialogue": "Dialogue2"
+				"Speaker":"Professor", 
+				"Line": "The academic community on Earth is far too traditional to appreciate my research. I want to be an innovator, a trailblazer, I can only hope there are other scientific minds like mine on this ship."
 			}
 		]
 	},
-	"Dialogue2":
+	"ProfessorDialogueB":
 	{
 		"DialogueBody":
 		[
 			{
-				"Speaker":"Captain", 
-				"Line": "captain line here"
+				"Speaker":"Professor", 
+				"Line": "Humans discovered Kepler 442-b in the dark ages of the 21st century, long before we could dream of reaching it. Were you aware that ancient telescopes could not tell whether a planet had a breathable atmosphere?"
 			},
 			{
 				"Speaker":"AI", 
-				"Line": "ai line here line here"
+				"Line": "Yes, my purpose is to know-"
+			},
+			{
+				"Speaker":"Professor", 
+				"Line": "Those poor, poor people, living their lives as if Earth was all they needed."
 			}
 		]
 	},
-	"Dialogue3":
+	"ProfessorDialogueC":
 	{
 		"DialogueBody":
 		[
 			{
-				"Speaker":"Captain", 
-				"Line": "captain line here"
-			},
-			{
-				"Speaker":"AI", 
-				"Line": "ai line here line here"
-			}
-		],
-		"Answers":
-		[
-			{
-				"AnswerText": "your answer text here",
-				"NextDialogue": "Dialogue1"
-			},
-			{
-				"AnswerText": "your answer text here",
-				"NextDialogue": "Dialogue2"
-			},
-			{
-				"AnswerText": "this is recursive",
-				"NextDialogue": "Dialogue3"
+				"Speaker":"Professor", 
+				"Line": "Home is my research! Unlike that so-called ‘survival’ expert, some of us are here for peace. Wherever I can focus, wherever my work takes me, that’s home."
 			}
 		]
 	},
+	"AstronomerDialogue":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"AI", 
+				"Line": "Hello-"
+			},
+			{
+				"Speaker":"Astronomer", 
+				"Line": "Oh!"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "Did I startle you?"
+			},
+			{
+				"Speaker":"Astronomer", 
+				"Line": "No! Well… yes."
+			}
+		],
+		"Options":
+		[
+			{
+				"OptionText": "Why did you leave Earth?",
+				"NextDialogue": "AstronomerDialogueA",
+				"DiscoveryType":"MapSideDisliked"
+			},
+			{
+				"OptionText": "What do you think of Kepler?",
+				"NextDialogue": "AstronomerDialogueB",
+				"DiscoveryType":"MapSideLiked"
+			},
+			{
+				"OptionText": "What does home mean to you?",
+				"NextDialogue": "AstronomerDialogueC",
+				"DiscoveryType":"CharacterDisliked"
+			}
+		]
+	},
+	"AstronomerDialogueA":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Astronomer", 
+				"Line": "On Earth, I haven’t seen the stars in years… nothing gets through the smog. Here, I have a head start on them"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "A head start on who?"
+			},
+			{
+				"Speaker":"Astronomer", 
+				"Line": "The people, the sightseers! Earth was nothing but a travel destination."
+			}
+		]
+	},
+	"AstronomerDialogueB":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Astronomer", 
+				"Line": "I can’t stop looking at it. Have you seen the mountains? Imagine what the night sky could show you up there..."
+			}
+		]
+	},
+	"AstronomerDialogueC":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Astronomer", 
+				"Line": "Home is… what I see when I look up."
+			}
+		]
+	},
+	"RangerDialogue":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Ranger", 
+				"Line": "You busy?"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "I can perform millions of functions simultaneously."
+			},
+			{
+				"Speaker":"Ranger", 
+				"Line": "Functions like getting me a good spot?"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "I can certainly try."
+			}
+		],
+		"Options":
+		[
+			{
+				"OptionText": "Why did you leave Earth?",
+				"NextDialogue": "RangerDialogueA",
+				"DiscoveryType":"CharacterDisliked"
+			},
+			{
+				"OptionText": "What do you think of Kepler?",
+				"NextDialogue": "RangerDialogueB",
+				"DiscoveryType":"MapSideLiked"
+			},
+			{
+				"OptionText": "What does home mean to you?",
+				"NextDialogue": "RangerDialogueC"
+			}
+		]
+	},
+	"RangerDialogueA":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Ranger", 
+				"Line": "Doesn’t really matter, they followed me here anyway."
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "They?"
+			},
+			{
+				"Speaker":"Ranger", 
+				"Line": "Yeah, him."
+			}
+		]
+	},
+	"RangerDialogueB":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Ranger", 
+				"Line": "I want to take a picture of it to send back to Earth. That forest? Those mountains? We used to have sights like that around my hometown."
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "While you were growing up?"
+			},
+			{
+				"Speaker":"Ranger", 
+				"Line": "No. Long, long before me."
+			}
+		]
+	},
+	"RangerDialogueC":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Ranger", 
+				"Line": "So that’s what you want all of us to think about this place - that it’s home."
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "That is what I’m optimized to do."
+			},
+			{
+				"Speaker":"Ranger", 
+				"Line": "Just give me somewhere to wander, I’ll figure out the rest."
+			}
+		]
+	},
+	"AnglerDialogue":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"AI", 
+				"Line": "I see that you requested a custom greeting. My apologies, I will start again."
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "Ahoy."
+			}
+		],
+		"Options":
+		[
+			{
+				"OptionText": "Why did you leave Earth?",
+				"NextDialogue": "AnglerDialogueA",
+			},
+			{
+				"OptionText": "What do you think of Kepler?",
+				"NextDialogue": "AnglerDialogueB",
+				"DiscoveryType":"MapSideLiked"
+			},
+			{
+				"OptionText": "What does home mean to you?",
+				"NextDialogue": "AnglerDialogueC",
+				"DiscoveryType":"CharacterDisliked"
+			}
+		]
+	},
+	"AnglerDialogueA":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Angler", 
+				"Line": "Family decision. Sure Earth has the best schools, megacities, birthplace of humanity and all that, but no space for people."
+			}
+		]
+	},
+	"AnglerDialogueB":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Angler", 
+				"Line": "You reckon there’s fish in that river? Like, alien fish?"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "I have no data on this planet’s native fauna."
+			},
+			{
+				"Speaker":"Angler", 
+				"Line": "Sounds like you’re gonna need a guy who brought his own rod."
+			}
+		]
+	},
+	"AnglerDialogueC":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Angler", 
+				"Line": "To me? Home’s just where my kids grow up, ask them. But between you and me, home isn’t anywhere near one of those eccentric-types, make sure of that for me."
+			}
+		]
+	}
 }

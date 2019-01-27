@@ -27,8 +27,9 @@ static class MyJsonUtility
 
             Character character = new Character();
             character.Name = characterKey;
-            character.CurrentDialogue = dialogues[characterRaw.StartingDialogue];
-            character.WhatIsHome = characterRaw.WhatIsHome;
+            character.StartingDialogue = dialogues[characterRaw.StartingDialogue];
+            character.CurrentDialogue = character.StartingDialogue;
+
             if (characterKey != "AI")
             {
                 character.LikedCharacter = characterRaw.LikedCharacter;
@@ -66,7 +67,7 @@ static class MyJsonUtility
             }
 
             dialogue.DialogueBody = dialogueRaw.DialogueBody;
-            AnswerJson[] answersRaw = dialogueRaw.Answers;
+            AnswerJson[] answersRaw = dialogueRaw.Options;
             if (answersRaw != null)
             {
                 Answer[] dialogueAnswers = new Answer[answersRaw.Length];
@@ -74,7 +75,7 @@ static class MyJsonUtility
                 {
                     var answerRaw = answersRaw[i];
                     var answer = new Answer();
-                    answer.AnswerText = answerRaw.AnswerText;
+                    answer.AnswerText = answerRaw.OptionText;
                     string nextDialogueKey = answerRaw.NextDialogue;
                     Dialogue nextDialogue;
 
@@ -90,17 +91,17 @@ static class MyJsonUtility
                     {
                         switch (answerRaw.DiscoveryType)
                         {
-                            case "CharacterLike":
-                                answer.DiscoveryType = DiscoveryType.CharacterLike;
+                            case "CharacterLiked":
+                                answer.DiscoveryType = DiscoveryType.CharacterLiked;
                                 break;
-                            case "CharacterDislike":
-                                answer.DiscoveryType = DiscoveryType.CharacterDislike;
+                            case "CharacterDisliked":
+                                answer.DiscoveryType = DiscoveryType.CharacterDisliked;
                                 break;
-                            case "MapSideLike":
-                                answer.DiscoveryType = DiscoveryType.MapSideLike;
+                            case "MapSideLiked":
+                                answer.DiscoveryType = DiscoveryType.MapSideLiked;
                                 break;
-                            case "MapSideDislike":
-                                answer.DiscoveryType = DiscoveryType.MapSideDislike;
+                            case "MapSideDisliked":
+                                answer.DiscoveryType = DiscoveryType.MapSideDisliked;
                                 break;
                         }
                     }
@@ -111,11 +112,11 @@ static class MyJsonUtility
 
                     dialogueAnswers[i] = answer;
                 }
-                dialogue.Answers = dialogueAnswers;
+                dialogue.Options = dialogueAnswers;
             }
             else
             {
-                dialogue.Answers = new Answer[0];
+                dialogue.Options = new Answer[0];
             }
         }
 

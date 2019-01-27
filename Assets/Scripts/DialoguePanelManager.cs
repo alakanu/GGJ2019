@@ -22,7 +22,6 @@ class DialoguePanelManager : MonoBehaviour
         }
     }
 
-
     public void DisplayDialogue(Dialogue currentDialogue)
     {
         typeWriter.Reset();
@@ -84,9 +83,9 @@ class DialoguePanelManager : MonoBehaviour
             ++currentLineIndex;
         }
 
-        if (currentDialogue.HasFinalChoice)
+        if (currentDialogue.HasOptions)
         {
-            Answer[] answers = currentDialogue.Answers;
+            Answer[] answers = currentDialogue.Options;
             int i;
             for (i = 0; i < answers.Length; i++)
             {
