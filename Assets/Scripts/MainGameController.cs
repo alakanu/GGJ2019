@@ -14,6 +14,7 @@ class MainGameController : MonoBehaviour
         charactersUI.OnCharacterSelected += OnCharacterSelected;
         currentCharacter = charactersDict["AI"];
         dialogueUI.DisplayDialogue(currentCharacter.CurrentDialogue);
+        charactersUI.SetCharacters(characters);
     }
 
     void OnAnswerSelected(int answerIndex)
