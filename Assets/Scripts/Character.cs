@@ -21,6 +21,7 @@ class Character
 
 enum MapSide
 {
+    None,
     Mountains,
     Beach,
     Forest,

@@ -32,10 +32,10 @@ static class MyJsonUtility
 
             if (characterKey != "AI")
             {
-                character.LikedCharacter = characterRaw.LikedCharacter;
-                character.DislikedCharacter = characterRaw.DislikedCharacter;
-                character.LikedMapSide = (MapSide)Enum.Parse(typeof(MapSide), characterRaw.LikedMapSide);
-                character.DislikedMapSide = (MapSide)Enum.Parse(typeof(MapSide), characterRaw.DislikedMapSide);
+                character.LikedCharacter = characterRaw.LikedCharacter == null ? string.Empty : characterRaw.LikedCharacter;
+                character.DislikedCharacter = characterRaw.DislikedCharacter == null ? string.Empty : characterRaw.DislikedCharacter;
+                character.LikedMapSide = characterRaw.LikedMapSide == null ? MapSide.None : (MapSide)Enum.Parse(typeof(MapSide), characterRaw.LikedMapSide);
+                character.DislikedMapSide = characterRaw.DislikedMapSide == null ? MapSide.None : (MapSide)Enum.Parse(typeof(MapSide), characterRaw.DislikedMapSide);
                 character.DiscoveredHints = new HashSet<string>();
                 character.HappyEnding = characterRaw.HappyEnding;
                 character.SadEnding = characterRaw.SadEnding;
