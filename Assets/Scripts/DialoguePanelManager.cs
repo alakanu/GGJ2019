@@ -39,12 +39,19 @@ class DialoguePanelManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Move next line");
             moveToNextLine = true;
         }
     }
 
-    public void ClearDialogue()
+    public void ResetDialogues()
+    {
+        moveToNextLine = false;
+        typeWriter.Reset();
+        StopAllCoroutines();
+        ClearDialogue();
+    }
+
+    void ClearDialogue()
     {
         moveToNextLine = false;
         DialogueText.text = string.Empty;

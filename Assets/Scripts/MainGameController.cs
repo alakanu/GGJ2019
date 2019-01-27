@@ -52,7 +52,7 @@ class MainGameController : MonoBehaviour
         else
         {
             currentCharacter = null;
-            dialogueUI.ClearDialogue();
+            dialogueUI.ResetDialogues();
         }
     }
 
@@ -66,6 +66,7 @@ class MainGameController : MonoBehaviour
     void OnScoresComputed()
     {
         ending = true;
+        dialogueUI.ResetDialogues();
         epilogueUI.DisplayEndings(characters);
     }
 
@@ -73,11 +74,19 @@ class MainGameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            dialogueUI.DialogueFastForward();
+            if (ending)
+            {
+                epilogueUI.FastForwardOrMoveNext();
+            }
+            else
+            {
+                dialogueUI.DialogueFastForward();
+            }
         }
     }
 
     bool ending;
+    AudioSource audioSource;
     Character currentCharacter;
     Dictionary<string, Character> charactersDict;
     Dictionary<string, Dialogue> dialogues;
