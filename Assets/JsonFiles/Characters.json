@@ -8,16 +8,12 @@
 		"StartingDialogue":"ProfessorDialogue",
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Prepper",
-		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
 	},
 	"Astronomer":
 	{
 		"StartingDialogue":"AstronomerDialogue",
-		"LikedCharacter":"Astronomer",
-		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
 		"DislikedMapSide":"Beach",
 		"HappyEnding":"yolo",
@@ -26,20 +22,16 @@
 	"Ranger":
 	{
 		"StartingDialogue":"RangerDialogue",
-		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Captain",
-		"LikedMapSide":"Forest",
-		"DislikedMapSide":"Beach",
+		"LikedMapSide":"Mountain",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
 	},
 	"Angler":
 	{
 		"StartingDialogue":"AnglerDialogue",
-		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Prepper",
 		"LikedMapSide":"River",
-		"DislikedMapSide":"Mountains",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
 	},
