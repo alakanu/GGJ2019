@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button), typeof(AudioSource))]
+[RequireComponent(typeof(Button))]
 class ButtonAudio : MonoBehaviour
 {
     public AudioClip buttonClickAudioClip;
-    AudioSource audioSource;
+    public AudioSource audioSource;
     // Update is called once per frame
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         audioSource.loop = false;
         audioSource.playOnAwake = false;
         audioSource.Stop();

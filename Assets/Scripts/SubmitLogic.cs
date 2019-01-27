@@ -10,7 +10,9 @@ public class SubmitLogic : MonoBehaviour
     public int dislikedMapSideMalus = 1;
 
     public int likedCharacterBonus = 1;
-    public int dislikedCharacterBonus = 1;
+    public int dislikedCharacterMalus = 1;
+
+    public int notDislikeBonus = 1;
 
     int[] maskForCheckIndex = { -1, +1, -3, +3 };
 
@@ -22,7 +24,7 @@ public class SubmitLogic : MonoBehaviour
 
         // Get all character tiles boxes
         GameObject[] colliders = GameObject.FindGameObjectsWithTag(CheckBoardMaker.CHECKBOARDBOXESTAG);
-
+        //if no dislike +1 points
         foreach (var item in colliders)
         {
             GridTile tile = item.GetComponent<GridTile>();
@@ -30,22 +32,40 @@ public class SubmitLogic : MonoBehaviour
             _characterMap.Add(tile.Index, tile.character);
 
             Character referenceChar = tile.character;
-
-            if (name.Contains(referenceChar.LikedMapSide.ToString()))
+            string objectName = item.gameObject.name;
+            bool dislikeSomeTerrain = false;
+            if (objectName.Contains(referenceChar.LikedMapSide.ToString()))
             {
                 referenceChar.totalScore += likedMapSideBonus;
             }
-            if (name.Contains(referenceChar.DislikedMapSide.ToString()))
+            if (objectName.Contains(referenceChar.DislikedMapSide.ToString()))
             {
                 referenceChar.totalScore -= dislikedMapSideMalus;
+                dislikeSomeTerrain = true;
             }
+            if (!dislikeSomeTerrain)
+                referenceChar.totalScore += notDislikeBonus;
         }
 
         foreach (var evaluatedCharacter in _characterMap)
         {
+            bool dislikedSomeone = false;
             foreach (var index in maskForCheckIndex)
             {
                 Character otherCharacter;
+
+                int valueToTest = index + evaluatedCharacter.Key;
+                int originalYposition = evaluatedCharacter.Key / 3;
+                int newYPosition = ( evaluatedCharacter.Key + index ) / 3;
+
+                //when adding or removing 1 from the index we don't want to check
+                //different rows. So we skip.
+                if (Mathf.Abs(index) == 1 &&
+                    originalYposition != newYPosition)
+                {
+                    continue;
+                }
+
                 if (_characterMap.TryGetValue(evaluatedCharacter.Key + index, out otherCharacter))
                 {
                     if (evaluatedCharacter.Value.LikedCharacter == otherCharacter.Name)
@@ -54,10 +74,14 @@ public class SubmitLogic : MonoBehaviour
                     }
                     else if (evaluatedCharacter.Value.DislikedCharacter == otherCharacter.Name)
                     {
-                        evaluatedCharacter.Value.totalScore += likedCharacterBonus;
+                        evaluatedCharacter.Value.totalScore -= dislikedCharacterMalus;
+                        dislikedSomeone = true;
                     }
                 }
             }
+
+            if(!dislikedSomeone)
+                evaluatedCharacter.Value.totalScore += notDislikeBonus;
         }
 
         ScoresComputed();
