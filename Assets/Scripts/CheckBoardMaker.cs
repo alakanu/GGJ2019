@@ -90,7 +90,7 @@ public class CheckBoardMaker : MonoBehaviour
             tileName += "_River";
         }
         //Don't add after this index!
-        tileName += "ind:" + currentIndex;
+//        tileName += "ind:" + currentIndex;
         GridTile gridTile = BoxColliders[currentIndex].gameObject.AddComponent<GridTile>();
         gridTile.Index = currentIndex;
         BoxColliders[currentIndex].name = tileName;
