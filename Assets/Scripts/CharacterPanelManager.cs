@@ -114,18 +114,18 @@ class CharacterPanelManager : MonoBehaviour
 
     void OnEndDrag(int index)
     {
+        // Remove character from board if it was already there.
+        for (int i = 0; i < 9; ++i)
+        {
+            var charInCell = boardCells[i].character;
+            if (charInCell != null && charInCell.Name == characters[index].Name)
+                boardCells[i].character = null;
+        }
+
         int cellHit = GetCellUnderCursor();
 
         if (cellHit != -1 && boardCells[cellHit].character == null)
         {
-            // Remove character from board if it was already there.
-            for (int i = 0; i < 9; ++i)
-            {
-                var charInCell = boardCells[i].character;
-                if (charInCell != null && charInCell.Name == characters[index].Name)
-                    boardCells[i].character = null;
-            }
-
             boardCells[cellHit].character = characters[index];
             draggables[index].position = cellPivots[cellHit];
         }
