@@ -5,13 +5,15 @@ class MainGameController : MonoBehaviour
 {
     public DialoguePanelManager dialogueUI;
     public CharacterPanelManager charactersUI;
-    public HintPanel hintPanel;
+    public HintPanelManager hintPanel;
+    public EpiloguePanelManager epilogueUI;
 
     void Start()
     {
         MyJsonUtility.LoadData(out charactersDict, out characters, out dialogues);
         dialogueUI.OnAnswerSelected += OnAnswerSelected;
         charactersUI.OnCharacterSelected += OnCharacterSelected;
+        SubmitLogic.ScoresComputed += OnScoresComputed;
         currentCharacter = charactersDict["AI"];
         dialogueUI.DisplayDialogue(currentCharacter.CurrentDialogue);
     }
@@ -60,6 +62,12 @@ class MainGameController : MonoBehaviour
         hintPanel.DisplayCharacterHints(currentCharacter);
     }
 
+    void OnScoresComputed()
+    {
+        ending = true;
+        epilogueUI.DisplayEndings(characters);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
@@ -68,6 +76,7 @@ class MainGameController : MonoBehaviour
         }
     }
 
+    bool ending;
     Character currentCharacter;
     Dictionary<string, Character> charactersDict;
     Dictionary<string, Dialogue> dialogues;

@@ -25,7 +25,7 @@ class DialoguePanelManager : MonoBehaviour
 
     public void DisplayDialogue(Dialogue currentDialogue)
     {
-        fastForward = false;
+        typeWriter.Reset();
         StopAllCoroutines();
         ClearDialogue();
         StartCoroutine(DisplayDialogueCoroutine(currentDialogue));
@@ -33,11 +33,20 @@ class DialoguePanelManager : MonoBehaviour
 
     public void DialogueFastForward()
     {
-        fastForward = true;
+        if (typeWriter.Writing)
+        {
+            typeWriter.FastForward();
+        }
+        else
+        {
+            Debug.Log("Move next line");
+            moveToNextLine = true;
+        }
     }
 
     public void ClearDialogue()
     {
+        moveToNextLine = false;
         DialogueText.text = string.Empty;
         for (int i = 0; i < AnswerButtons.Length; i++)
         {
@@ -51,33 +60,17 @@ class DialoguePanelManager : MonoBehaviour
         DialogueLine[] lines = currentDialogue.DialogueBody;
         while (currentLineIndex < lines.Length)
         {
-            DialogueLine line = lines[currentLineIndex];
-            string lineText = line.Line;
-            int parsedCharactersCount = 0;
-            while (parsedCharactersCount < lineText.Length)
-            {
-                if (fastForward)
-                {
-                    DialogueText.text = lineText;
-                    parsedCharactersCount = lineText.Length;
-                    fastForward = false;
-                }
-                else
-                {
-                    DialogueText.text = lineText.Substring(0, ++parsedCharactersCount);
-                    yield return waitBetweenEachLetter;
-                }
-            }
+            yield return typeWriter.WriteText(lines[currentLineIndex].Line, DialogueText);
 
             if (currentLineIndex != lines.Length - 1)
             {
-                while (!fastForward)
+                while (!moveToNextLine)
                 {
                     yield return null;
                 }
-                fastForward = false;
             }
 
+            moveToNextLine = false;
             ++currentLineIndex;
         }
 
@@ -109,8 +102,8 @@ class DialoguePanelManager : MonoBehaviour
     }
 
     const string FINAL_ANSWER = "Goodbye.";
-    bool fastForward;
-    WaitForSeconds waitBetweenEachLetter = new WaitForSeconds(0.05f);
+    TypeWriter typeWriter = new TypeWriter();
+    bool moveToNextLine;
 
     [SerializeField]
     Text DialogueText;

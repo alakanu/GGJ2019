@@ -122,7 +122,7 @@ class CharacterPanelManager : MonoBehaviour
 
     Transform draggedObject;
     Camera mainCamera;
-    HintPanel hintPanel;
+    HintPanelManager hintPanel;
     LayerMask terrainMask;
     Collider[] boardCells;
     Vector3[] cellPivots;

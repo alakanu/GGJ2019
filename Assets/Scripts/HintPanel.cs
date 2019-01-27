@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-class HintPanel : MonoBehaviour
+class HintPanelManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

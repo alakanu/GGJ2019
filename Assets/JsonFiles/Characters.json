@@ -10,7 +10,9 @@
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach"
+		"DislikedMapSide":"Beach",
+		"HappyEnding":"yolo",
+		"SadEnding":"yolmt"
 	},
 	"Astronomer":
 	{
@@ -19,7 +21,9 @@
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach"
+		"DislikedMapSide":"Beach",
+		"HappyEnding":"yolo",
+		"SadEnding":"yolmt"
 	},
 	"Ranger":
 	{
@@ -28,7 +32,9 @@
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach"
+		"DislikedMapSide":"Beach",
+		"HappyEnding":"yolo",
+		"SadEnding":"yolmt"
 	},
 	"Angler":
 	{
@@ -37,7 +43,9 @@
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach"
+		"DislikedMapSide":"Beach",
+		"HappyEnding":"yolo",
+		"SadEnding":"yolmt"
 	},
 	"Captain":
 	{
@@ -46,7 +54,9 @@
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach"
+		"DislikedMapSide":"Beach",
+		"HappyEnding":"yolo",
+		"SadEnding":"yolmt"
 	},
 	"Prepper":
 	{
@@ -55,7 +65,9 @@
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach"
+		"DislikedMapSide":"Beach",
+		"HappyEnding":"yolo",
+		"SadEnding":"yolmt"
 	},
 	"Athlete":
 	{
@@ -64,7 +76,9 @@
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach"
+		"DislikedMapSide":"Beach",
+		"HappyEnding":"yolo",
+		"SadEnding":"yolmt"
 	},
 	"Executive":
 	{
@@ -73,7 +87,9 @@
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach"
+		"DislikedMapSide":"Beach",
+		"HappyEnding":"yolo",
+		"SadEnding":"yolmt"
 	},
 	"Doctor":
 	{
@@ -82,6 +98,8 @@
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Mountains",
-		"DislikedMapSide":"Beach"
+		"DislikedMapSide":"Beach",
+		"HappyEnding":"yolo",
+		"SadEnding":"yolmt"
 	},
 }

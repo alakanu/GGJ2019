@@ -9,6 +9,9 @@
     public MapSide LikedMapSide;
     public MapSide DislikedMapSide;
 
+    public string HappyEnding;
+    public string SadEnding;
+
     public bool[] Discoveries;
 
     public int totalScore;
@@ -32,5 +35,7 @@ class CharacterJson
     public string DislikedCharacter;
     public string LikedMapSide;
     public string DislikedMapSide;
+    public string HappyEnding;
+    public string SadEnding;
 }
 

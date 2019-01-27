@@ -36,6 +36,8 @@ static class MyJsonUtility
                 character.LikedMapSide = (MapSide)Enum.Parse(typeof(MapSide), characterRaw.LikedMapSide);
                 character.DislikedMapSide = (MapSide)Enum.Parse(typeof(MapSide), characterRaw.DislikedMapSide);
                 character.Discoveries = new bool[4];
+                character.HappyEnding = characterRaw.HappyEnding;
+                character.SadEnding = characterRaw.SadEnding;
                 charactersList.Add(character);
             }
             characterDict.Add(characterKey, character);

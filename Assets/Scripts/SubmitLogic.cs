@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SubmitLogic : MonoBehaviour
 {
+    public static event Action ScoresComputed;
+
     public int likedMapSideBonus = 1;
     public int dislikedMapSideMalus = 1;
 
@@ -57,5 +59,7 @@ public class SubmitLogic : MonoBehaviour
                 }
             }
         }
+
+        ScoresComputed();
     }
 }
