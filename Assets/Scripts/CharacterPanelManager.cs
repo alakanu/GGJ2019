@@ -23,8 +23,11 @@ class CharacterPanelManager : MonoBehaviour
         characters = chars;
     }
 
-    void Start()
+
+
+    public void EnablePanel()
     {
+        gameObject.SetActive(true);
         mainCamera = FindObjectOfType<Camera>();
         audioSource = GetComponent<AudioSource>();
         int length = characterButtons.Length;
@@ -106,12 +109,6 @@ class CharacterPanelManager : MonoBehaviour
         }
 
         submit.interactable = false;
-        gameObject.SetActive(false);
-    }
-
-    public void EnablePanel()
-    {
-        gameObject.SetActive(true);
     }
 
     void UpdatePortraits(int selected)

@@ -18,17 +18,22 @@ class SplashScreen : MonoBehaviour
     void Update()
     {
         Color col = bg.color;
-        col.a += 0.33f * Time.deltaTime;
-        bg.color = col;
-        if (Input.anyKeyDown)
+        float a = col.a + 0.33f * Time.deltaTime;
+        if (a >= 1f)
         {
-            if (bg.color.a >= 1f)
+            a = 1f;
+
+            if (Input.anyKeyDown)
             {
+
                 SceneManager.LoadScene("MainScene");
+
             }
         }
+        col.a = a;
+        bg.color = col;
     }
 
-    float alphaSpeed = 0.25f;
+    float alphaSpeed = 0.66f;
     Image bg;
 }
