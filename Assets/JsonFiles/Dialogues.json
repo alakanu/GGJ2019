@@ -356,5 +356,191 @@
 				"Line": "To me? Home’s just where my kids grow up, ask them. But between you and me, home isn’t anywhere near one of those eccentric-types, make sure of that for me."
 			}
 		]
+	},
+	"CaptainDialogue":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"AI", 
+				"Line": "Hello, Captain."
+			},
+			{
+				"Speaker":"Captain", 
+				"Line": "Ah, Planner, do you need any help?."
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "Actually, it is your turn to to discuss your new home."
+			},
+			{
+				"Speaker":"Captain", 
+				"Line": "Of all the things to forget… alright, ask away."
+			}
+		],
+		"Options":
+		[
+			{
+				"OptionText": "Why did you leave Earth?",
+				"NextDialogue": "CaptainDialogueA",
+				"Hint": "Wants to be central."
+			},
+			{
+				"OptionText": "What do you think of Kepler?",
+				"NextDialogue": "CaptainDialogueB",
+				"Hint":"Wants to live near the Executive."
+			},
+			{
+				"OptionText": "What does home mean to you?",
+				"NextDialogue": "CaptainDialogueC"
+			}
+		]
+	},
+	"CaptainDialogueA":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Captain", 
+				"Line": "Well… I’m the Captain."
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "And why not return, if you had the opportunity?"
+			},
+			{
+				"Speaker":"Captain", 
+				"Line": "My job is a lot like yours - I’ve watched over these people through a thousand years in space, and I need to watch over them here too. I don’t care about the mountains, or the beach, put me somewhere where I can still lead."
+			}
+		]
+	},
+	"CaptainDialogueB":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Captain", 
+				"Line": "Beautiful but… expensive."
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "Expensive?"
+			},
+			{
+				"Speaker":"Captain", 
+				"Line": "If anyone on this ship still has any life savings, I’d be surprised. Well, excluding our top donor. I should probably try to keep him happy…"
+			}
+		]
+	},
+	"CaptainDialogueC":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Captain", 
+				"Line": "My passengers are after something they couldn’t get on Earth - have you ever stopped to think about how strange it is, settling on another planet to build a version of Earth you never experienced yourself?"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "Captain, what does home mean to you?"
+			},
+			{
+				"Speaker":"Captain", 
+				"Line": "To me?"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "Yes, to you. What does home mean to you?"
+			},
+			{
+				"Speaker":"Captain", 
+				"Line": "Home is… home is where I’m needed."
+			}
+		]
+	},
+	"PrepperDialogue":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"AI", 
+				"Line": "Hello, Colonist."
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "… Hello, Colonist?"
+			},
+			{
+				"Speaker":"Prepper", 
+				"Line": "What do you want?"
+			}
+		],
+		"Options":
+		[
+			{
+				"OptionText": "Why did you leave Earth?",
+				"NextDialogue": "PrepperDialogueA",
+				"Hint": "Keep away from the rich…"
+			},
+			{
+				"OptionText": "What do you think of Kepler?",
+				"NextDialogue": "PrepperDialogueB",
+			},
+			{
+				"OptionText": "What does home mean to you?",
+				"NextDialogue": "PrepperDialogueC",
+				"Hint":"Lived in the forest."
+			}
+		]
+	},
+	"PrepperDialogueA":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Prepper", 
+				"Line": "Earth’s doomed. As good as dead. I bet it’s gone already. All because those corporations just had to squeeze it for the cash."
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "And you wish to rebuild?"
+			},
+			{
+				"Speaker":"Prepper", 
+				"Line": "Nah, I’m gonna make this planet a bigwig-free zone."
+			}
+		]
+	},
+	"PrepperDialogueB":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Prepper", 
+				"Line": "Nice place. I’m keeping it that way."
+			}
+		]
+	},
+	"PrepperDialogueC":
+	{
+		"DialogueBody":
+		[
+			{
+				"Speaker":"Prepper", 
+				"Line": "Why’s that any of your business?"
+			},
+			{
+				"Speaker":"AI", 
+				"Line": "I have no business."
+			},
+			{
+				"Speaker":"Prepper", 
+				"Line": "…"
+			},
+			{
+				"Speaker":"Prepper", 
+				"Line": "Just put me somewhere I don’t have leave someday, got it? I had a nice thing going back on Earth, a hideout in the woods, but I never knew if it was gonna be there tomorrow."
+			}
+		]
 	}
 }

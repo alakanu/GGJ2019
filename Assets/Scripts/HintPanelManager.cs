@@ -28,10 +28,5 @@ class HintPanelManager : MonoBehaviour
         }
     }
 
-    public void ClearHintPanel()
-    {
-        gameObject.SetActive(false);
-    }
-
     Text[] lines;
 }
