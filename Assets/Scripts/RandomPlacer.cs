@@ -38,10 +38,6 @@ public class RandomPlacer : MonoBehaviour
     }
 #endif
 
-    void Start()
-    {
-    }
-
     void SpawnEverything()
     {
         Random.InitState(RandomSeed);

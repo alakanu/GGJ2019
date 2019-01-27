@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WindOnTreeManager : MonoBehaviour
 {
-    public float Frequency = 2.0f;
+    public float SwingTime = 2.0f;
     public AnimationCurve animationCurve;
     public Vector3 MaxRotation = new Vector3(5f,0f,0f);
 
@@ -22,7 +22,7 @@ public class WindOnTreeManager : MonoBehaviour
     {
         managedList.Add(managed);
         curve = animationCurve;
-        frequency = Frequency;
+        frequency = SwingTime;
         MaxRotationQuaternion = Quaternion.Euler(MaxRotation);
         maxRotation = MaxRotationQuaternion;
     }
@@ -39,7 +39,7 @@ public class WindOnTreeManager : MonoBehaviour
                 _stopwatch.Stop();
                 return;
             }
-            managedList[i].BlowTheWind((Time.realtimeSinceStartup % Frequency) / Frequency);
+            managedList[i].BlowTheWind((Time.realtimeSinceStartup % SwingTime) / SwingTime);
         }
         _lastValidIndex = 0;
         _stopwatch.Stop();

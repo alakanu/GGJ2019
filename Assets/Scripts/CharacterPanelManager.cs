@@ -5,28 +5,33 @@ using UnityEngine.UI;
 
 class CharacterPanelManager : MonoBehaviour
 {
-    public event Action<int> OnCharacterSelected;
+    public event Action<int> OnCharacterSelected = i => { };
 
-    public Button[] characters;
+    public Button[] characterButtons;
     public Transform[] draggables;
     public Button submit;
+
+    public void SetCharacters(Character[] chars)
+    {
+        characters = chars;
+    }
 
     void Start()
     {
         mainCamera = FindObjectOfType<Camera>();
 
-        int length = characters.Length;
+        int length = characterButtons.Length;
         for (int i = 0; i < length; ++i)
         {
             int index = i;
             draggables[i].gameObject.SetActive(false);
-            characters[i].onClick.AddListener(
+            characterButtons[i].onClick.AddListener(
                 () =>
                 {
                     OnCharacterSelected(index);
                 }
                 );
-            var triggers = characters[i].GetComponent<EventTrigger>().triggers;
+            var triggers = characterButtons[i].GetComponent<EventTrigger>().triggers;
             var entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.BeginDrag;
             entry.callback.AddListener((data) => { OnBeginDrag(index); });
@@ -47,27 +52,36 @@ class CharacterPanelManager : MonoBehaviour
         terrainMask = 1 << LayerMask.NameToLayer("Terrain");
 
         // I have to do this because the cells are instantiated in real time.
-        boardCells = new Collider[9];
-        boardCells[0] = GameObject.Find("CharTile__Mountains_River").GetComponent<Collider>();
-        boardCells[1] = GameObject.Find("CharTile__Mountains").GetComponent<Collider>();
-        boardCells[2] = GameObject.Find("CharTile__Mountains_Forest").GetComponent<Collider>();
-        boardCells[3] = GameObject.Find("CharTile__River").GetComponent<Collider>();
-        boardCells[4] = GameObject.Find("CharTile_").GetComponent<Collider>();
-        boardCells[5] = GameObject.Find("CharTile__Forest").GetComponent<Collider>();
-        boardCells[6] = GameObject.Find("CharTile__Beach_River").GetComponent<Collider>();
-        boardCells[7] = GameObject.Find("CharTile__Beach").GetComponent<Collider>();
-        boardCells[8] = GameObject.Find("CharTile__Beach_Forest").GetComponent<Collider>();
+        boardCells = new GridTile[9];
+        var cell = GameObject.Find("CharTile__Mountains_River").GetComponent<GridTile>();
+        boardCells[cell.Index] = cell;
+        cell = GameObject.Find("CharTile__Mountains").GetComponent<GridTile>();
+        boardCells[cell.Index] = cell;
+        cell = GameObject.Find("CharTile__Mountains_Forest").GetComponent<GridTile>();
+        boardCells[cell.Index] = cell;
+        cell = GameObject.Find("CharTile__River").GetComponent<GridTile>();
+        boardCells[cell.Index] = cell;
+        cell = GameObject.Find("CharTile_").GetComponent<GridTile>();
+        boardCells[cell.Index] = cell;
+        cell = GameObject.Find("CharTile__Forest").GetComponent<GridTile>();
+        boardCells[cell.Index] = cell;
+        cell = GameObject.Find("CharTile__Beach_River").GetComponent<GridTile>();
+        boardCells[cell.Index] = cell;
+        cell = GameObject.Find("CharTile__Beach").GetComponent<GridTile>();
+        boardCells[cell.Index] = cell;
+        cell = GameObject.Find("CharTile__Beach_Forest").GetComponent<GridTile>();
+        boardCells[cell.Index] = cell;
 
+        cellColliders = new Collider[9];
         cellPivots = new Vector3[9];
 
         for (int i = 0; i < 9; ++i)
         {
-            var origin = boardCells[i].transform.position + Vector3.up * 10.0f;
+            cellColliders[i] = boardCells[i].GetComponent<Collider>();
+            var origin = cellColliders[i].transform.position + Vector3.up * 10.0f;
             RaycastHit hit;
             if (Physics.Raycast(origin, Vector3.down, out hit, terrainMask))
-            {
                 cellPivots[i] = hit.point;
-            }
             else
                 Debug.LogWarning("Terrain collider not found.");
         }
@@ -90,8 +104,8 @@ class CharacterPanelManager : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, terrainMask))
         {
-            // Some point above the ground.
-            const float HEIGHT = 1.0f;
+            // How high above the ground.
+            const float HEIGHT = 0.0f;
             draggables[index].position = hit.point + Vector3.up * HEIGHT;
         }
         else
@@ -100,30 +114,106 @@ class CharacterPanelManager : MonoBehaviour
 
     void OnEndDrag(int index)
     {
-        // Cast a ray, see where in the grid the character was dropped.
+        // Remove character from board if it was already there.
+        for (int i = 0; i < 9; ++i)
+        {
+            var charInCell = boardCells[i].character;
+            if (charInCell != null && charInCell.Name == characters[index].Name)
+                boardCells[i].character = null;
+        }
+
+        int cellHit = GetCellUnderCursor();
+
+        if (cellHit != -1 && boardCells[cellHit].character == null)
+        {
+            boardCells[cellHit].character = characters[index];
+            draggables[index].position = cellPivots[cellHit];
+        }
+        else
+        {
+            draggables[index].gameObject.SetActive(false);
+        }
+    }
+
+    // cellHit == -1 means no cell hit.
+    int GetCellUnderCursor()
+    {
         var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+        int cellHit = -1;
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, terrainMask))
         {
-            int length = boardCells.Length;
+            int length = cellColliders.Length;
             for (int i = 0; i < length; ++i)
             {
-                if (boardCells[i].bounds.Contains(hit.point))
+                if (cellColliders[i].bounds.Contains(hit.point))
                 {
-                    draggables[index].position = cellPivots[i];
-                    return;
+                    cellHit = i;
+                    break;
                 }
             }
         }
 
-        // if we didn't hit a cell.
-        draggables[index].gameObject.SetActive(false);
+        return cellHit;
+    }
+
+    void RemoveCharacterFromBoard(Character c)
+    {
+        for (int i = 0; i < 9; ++i)
+        {
+            if (boardCells[i].character.Name == characters[i].Name)
+                boardCells[i].character = null;
+        }
+    }
+
+    // Check if we are dragging from the board.
+    void Update()
+    {
+        // Begin drag.
+        if (Input.GetMouseButtonDown(0))
+        {
+            int cellHit = GetCellUnderCursor();
+
+            if (cellHit != -1 && boardCells[cellHit].character != null)
+            {
+                draggingFromCell = true;
+
+                // Get index from character.
+                int characterIndex = -1;
+                var character = boardCells[cellHit].character;
+                for (int i = 0; i < 9; ++i)
+                {
+                    if (characters[i].Name == character.Name)
+                        characterIndex = i;
+                }
+
+                characterDraggedFromCell = characterIndex;
+            }
+        }
+
+        // Drag.
+        if (Input.GetMouseButton(0) && draggingFromCell)
+        {
+            OnDrag(characterDraggedFromCell);
+        }
+
+        // End drag.
+        if (Input.GetMouseButtonUp(0) && draggingFromCell)
+        {
+            draggingFromCell = false;
+            OnEndDrag(characterDraggedFromCell);
+        }
     }
 
     Transform draggedObject;
     Camera mainCamera;
     HintPanelManager hintPanel;
     LayerMask terrainMask;
-    Collider[] boardCells;
+    Character[] characters;
+    GridTile[] boardCells;
+    Collider[] cellColliders;
     Vector3[] cellPivots;
+    bool draggingFromCell = false;
+    int characterDraggedFromCell;
 }
