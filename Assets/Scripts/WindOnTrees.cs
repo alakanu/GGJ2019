@@ -20,6 +20,9 @@ public class WindOnTrees : MonoBehaviour
 
     public void BlowTheWind(float value)
     {
+        value += offset;
+        if (offset > 1.0)
+            value -= 1.0f;
         this.transform.rotation = Quaternion.Lerp(baseRotation, maxRotation, curve.Evaluate(value));
     }
 }
