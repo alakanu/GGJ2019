@@ -43,6 +43,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Clouds
+    second: {fileID: 2100000, guid: 3e8d8ec8ce8b67d49aafc5ba84541c28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Grass
     second: {fileID: 2100000, guid: b37da454954dffe4985e44eb33992c9f, type: 2}
   - first:
