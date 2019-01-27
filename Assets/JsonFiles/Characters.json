@@ -40,8 +40,8 @@
 		"StartingDialogue":"CaptainDialogue",
 		"LikedCharacter":"Executive",
 		"DislikedMapSide":"Mountains",
-		"HappyEnding":"yolo",
-		"SadEnding":"yolmt"
+		"HappyEnding":"The Captain never set foot on another voyage, why would he? Kepler’s the only home he wants to visit.",
+		"SadEnding":"With the next colony ship, the Captain returned to being a Captain, hoping that he might come across a home if he helped others find theirs."
 	},
 	"Prepper":
 	{

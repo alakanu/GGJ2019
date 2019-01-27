@@ -18,7 +18,7 @@ class SplashScreen : MonoBehaviour
     void Update()
     {
         Color col = bg.color;
-        float a = col.a + 0.33f * Time.deltaTime;
+        float a = col.a + alphaSpeed * Time.deltaTime;
         if (a >= 1f)
         {
             a = 1f;
