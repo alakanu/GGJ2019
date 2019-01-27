@@ -8,32 +8,32 @@
 		"StartingDialogue":"ProfessorDialogue",
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Prepper",
-		"HappyEnding":"yolo",
-		"SadEnding":"yolmt"
+		"HappyEnding":"Able to focus on her research, the Professor now has more students and published papers can she can count.",
+		"SadEnding":"Unable to focus on her research, the Professor hasn’t published anything in years."
 	},
 	"Astronomer":
 	{
 		"StartingDialogue":"AstronomerDialogue",
 		"LikedMapSide":"Mountains",
 		"DislikedMapSide":"Beach",
-		"HappyEnding":"yolo",
-		"SadEnding":"yolmt"
+		"HappyEnding":"The Astronomer’s observatory has mapped more of this galaxy than we ever dreamed of.",
+		"SadEnding":"Without the right place to build an Observatory, the Astronomer stopped trying to look up at the stars."
 	},
 	"Ranger":
 	{
 		"StartingDialogue":"RangerDialogue",
 		"DislikedCharacter":"Captain",
 		"LikedMapSide":"Mountains",
-		"HappyEnding":"yolo",
-		"SadEnding":"yolmt"
+		"HappyEnding":"Nobody knows more about Kepler’s forests and mountains than the Ranger, who finally understands how beautiful the Earth once was.",
+		"SadEnding":"Unable to wander, and unable to protect Kepler’s mountains and forest, the Ranger left to try again on a new world."
 	},
 	"Angler":
 	{
 		"StartingDialogue":"AnglerDialogue",
 		"DislikedCharacter":"Prepper",
 		"LikedMapSide":"River",
-		"HappyEnding":"yolo",
-		"SadEnding":"yolmt"
+		"HappyEnding":"The Angler’s children grew up to call themselves the first true Keplerites… Keplerians? They haven’t decided on a name yet.",
+		"SadEnding":"Concerned for the safety of his family, the Angler fled back to Earth at the first opportunity."
 	},
 	"Captain":
 	{
@@ -48,31 +48,31 @@
 		"StartingDialogue":"PrepperDialogue",
 		"DislikedCharacter":"Executive",
 		"LikedMapSide":"Forest",
-		"HappyEnding":"yolo",
-		"SadEnding":"yolmt"
+		"HappyEnding":"The Prepper built a home he knew would be there tomorrow. And the day after. And the day after that. He’s starting to wonder if he even needs to shut himself away in the first place.",
+		"SadEnding":"The Prepper built a home he knew would be there tomorrow, and never left it."
 	},
 	"Athlete":
 	{
 		"StartingDialogue":"AthleteDialogue",
 		"DislikedCharacter":"Professor",
 		"LikedMapSide":"Beach",
-		"HappyEnding":"yolo",
-		"SadEnding":"yolmt"
+		"HappyEnding":"The Athlete only held onto her world records until the next colonists arrived. She doesn’t mind, marathons are more fun with friends.",
+		"SadEnding":"The Athlete still holds all the records on Kepler, but the novelty wears of when you’re your only competition. "
 	},
 	"Executive":
 	{
 		"StartingDialogue":"ExecutiveDialogue",
 		"LikedMapSide":"Beach",
 		"DislikedMapSide":"Mountains",
-		"HappyEnding":"yolo",
-		"SadEnding":"yolmt"
+		"HappyEnding":"Enjoying the peace of Kepler’s beaches, the Executive reconsidered his development plans. For unprofitable piles of rock, those mountains can be quite pretty in the right light.",
+		"SadEnding":"Sooner or later, the Executive started to worry about profits again. Kepler was nice, before its natural resources were sold off."
 	},
 	"Doctor":
 	{
 		"StartingDialogue":"DoctorDialogue",
 		"DislikedCharacter":"Angler",
 		"LikedMapSide":"Forest",
-		"HappyEnding":"yolo",
-		"SadEnding":"yolmt"
+		"HappyEnding":"Future generations on Kepler will never have to worry about disease, thanks to the Doctor, whose research helped to fight viruses both new and old.",
+		"SadEnding":"Kepler’s native lifeforms are still a mystery to humans, plaguing the colony with almost constant outbreaks of disease."
 	}
 }

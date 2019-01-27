@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 class EpiloguePanelManager : MonoBehaviour
@@ -39,19 +40,18 @@ class EpiloguePanelManager : MonoBehaviour
             bool happyEnding = character.totalScore > 0;
             happyEndingPortraits[i].gameObject.SetActive(happyEnding);
             sadEndingPortraits[i].gameObject.SetActive(!happyEnding);
+            epilogueText.text = string.Empty;
             yield return typeWriter.WriteText(happyEnding ? character.HappyEnding : character.SadEnding, epilogueText);
             while (!moveNextEnding)
             {
                 yield return null;
             }
-
             moveNextEnding = false;
 
             happyEndingPortraits[i].gameObject.SetActive(false);
             sadEndingPortraits[i].gameObject.SetActive(false);
         }
-
-        gameObject.SetActive(false);
+        SceneManager.LoadScene("SplashScreenScene");
     }
 
     bool moveNextEnding;
