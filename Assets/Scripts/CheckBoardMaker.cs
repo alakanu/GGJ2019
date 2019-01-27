@@ -10,6 +10,7 @@ public class CheckBoardMaker : MonoBehaviour
     public int lateralSize = 3;
     public List<BoxCollider> BoxColliders = new List<BoxCollider>();
     public List<GameObject> debugCanvases = new List<GameObject>();
+    public bool CreateDebugCanvas = false;
     public GameObject CanvasDebug;
 
     public const string CHECKBOARDBOXESTAG = "CharacterBoxes";
@@ -36,11 +37,12 @@ public class CheckBoardMaker : MonoBehaviour
         }
         DestroyEverything();
         CreateCheckBoard();
-        ShowDebugCanvases();
+        if(CreateDebugCanvas)
+            CreateAndShowDebugCanvas();
     }
 #endif
 
-    void ShowDebugCanvases()
+    void CreateAndShowDebugCanvas()
     {
         foreach (var item in BoxColliders)
         {
