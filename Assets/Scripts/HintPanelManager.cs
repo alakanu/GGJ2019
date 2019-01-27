@@ -18,9 +18,14 @@ class HintPanelManager : MonoBehaviour
             int i = 0;
             foreach (var item in character.DiscoveredHints)
             {
+                lines[i].gameObject.SetActive(true);
                 lines[i++].text = item;
             }
 
+            while (i < lines.Length)
+            {
+                lines[i++].gameObject.SetActive(false);
+            }
         }
     }
 
