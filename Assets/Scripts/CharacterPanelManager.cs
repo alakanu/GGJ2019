@@ -218,14 +218,17 @@ class CharacterPanelManager : MonoBehaviour
             if (cellHit != -1 && boardCells[cellHit].character != null)
             {
                 draggingFromCell = true;
-
+                audioSource.clip = dragClip;
+                audioSource.Play();
                 // Get index from character.
                 int characterIndex = -1;
                 var character = boardCells[cellHit].character;
                 for (int i = 0; i < 9; ++i)
                 {
                     if (characters[i].Name == character.Name)
+                    {
                         characterIndex = i;
+                    }
                 }
 
                 characterDraggedFromCell = characterIndex;
