@@ -38,7 +38,7 @@ class DialoguePanelManager : MonoBehaviour
         StartCoroutine(DisplayDialogueCoroutine(currentDialogue));
     }
 
-    public void DialogueFastForward()
+    public void FastForwardOrMoveNext()
     {
         if (typeWriter.Writing)
         {

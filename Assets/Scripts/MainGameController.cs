@@ -107,7 +107,7 @@ class MainGameController : MonoBehaviour
             }
             else
             {
-                dialogueUI.DialogueFastForward();
+                dialogueUI.FastForwardOrMoveNext();
             }
         }
     }
