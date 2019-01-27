@@ -19,7 +19,7 @@ public class CheckBoardMaker : MonoBehaviour
     void Start()
     {
         foreach (var item in debugCanvases)
-	    {
+        {
             Destroy(item);
         }
         debugCanvases.Clear();
@@ -37,7 +37,7 @@ public class CheckBoardMaker : MonoBehaviour
         }
         DestroyEverything();
         CreateCheckBoard();
-        if(CreateDebugCanvas)
+        if (CreateDebugCanvas)
             CreateAndShowDebugCanvas();
     }
 #endif
@@ -49,7 +49,7 @@ public class CheckBoardMaker : MonoBehaviour
             GameObject canvas = GameObject.Instantiate(CanvasDebug, transform, false);
             Text text = canvas.GetComponent<Text>();
             text.text = item.name;
-            canvas.transform.position = item.transform.position + new Vector3(0f,3f,0f);
+            canvas.transform.position = item.transform.position + new Vector3(0f, 3f, 0f);
         }
     }
 
@@ -75,7 +75,8 @@ public class CheckBoardMaker : MonoBehaviour
         if (mountainOrSea == -1)
         {
             tileName += "_Mountains";
-        } else if (mountainOrSea == 1)
+        }
+        else if (mountainOrSea == 1)
         {
             tileName += "_Beach";
         }
@@ -97,7 +98,7 @@ public class CheckBoardMaker : MonoBehaviour
         BoxColliders[currentIndex].gameObject.layer = 2;
         BoxColliders[currentIndex].transform.parent = this.transform;
         BoxColliders[currentIndex].size = boxSize;
-        BoxColliders[currentIndex].transform.localPosition = new Vector3(((currentIndex / lateralSize) * Distance ) - offSetGridToCenter.x, 0f, ( (currentIndex % lateralSize) * Distance) - offSetGridToCenter.z);
+        BoxColliders[currentIndex].transform.localPosition = new Vector3(((currentIndex / lateralSize) * Distance) - offSetGridToCenter.x, 0f, ((currentIndex % lateralSize) * Distance) - offSetGridToCenter.z);
     }
 
     void DestroyEverything()

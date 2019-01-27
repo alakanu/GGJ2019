@@ -6,6 +6,7 @@ using UnityEngine.UI;
 class DialoguePanelManager : MonoBehaviour
 {
     public event Action<int> OnAnswerSelected;
+    public event Action<int> IntroStage;
 
     void Start()
     {
@@ -20,6 +21,13 @@ class DialoguePanelManager : MonoBehaviour
             AnswerTexts[i] = AnswerButtons[i].GetComponentInChildren<Text>();
             AnswerButtons[i].gameObject.SetActive(false);
         }
+    }
+
+    public void DisplayIntro(Dialogue intro)
+    {
+        ClearDialogue();
+        StartCoroutine(DisplayIntroCoroutine(intro));
+
     }
 
     public void DisplayDialogue(Dialogue currentDialogue)
@@ -58,6 +66,56 @@ class DialoguePanelManager : MonoBehaviour
         for (int i = 0; i < AnswerButtons.Length; i++)
         {
             AnswerButtons[i].gameObject.SetActive(false);
+        }
+    }
+
+    IEnumerator DisplayIntroCoroutine(Dialogue currentDialogue)
+    {
+        int currentLineIndex = 0;
+        DialogueLine[] lines = currentDialogue.DialogueBody;
+        while (currentLineIndex < lines.Length)
+        {
+            IntroStage(currentLineIndex);
+            DialogueLine line = lines[currentLineIndex];
+            SpeakerNameText.text = line.Speaker + ":";
+            yield return typeWriter.WriteText(line.Line, DialogueText);
+
+            if (currentLineIndex != lines.Length - 1)
+            {
+                while (!moveToNextLine)
+                {
+                    yield return null;
+                }
+            }
+
+            moveToNextLine = false;
+            ++currentLineIndex;
+        }
+
+        if (currentDialogue.HasOptions)
+        {
+            Answer[] answers = currentDialogue.Options;
+            int i;
+            for (i = 0; i < answers.Length; i++)
+            {
+                AnswerButtons[i].gameObject.SetActive(true);
+                AnswerTexts[i].text = answers[i].AnswerText;
+            }
+
+            for (; i < AnswerTexts.Length; i++)
+            {
+                AnswerButtons[i].gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            AnswerButtons[0].gameObject.SetActive(true);
+            AnswerTexts[0].text = FINAL_ANSWER;
+            for (int i = 1; i < AnswerTexts.Length; i++)
+            {
+                AnswerButtons[i].gameObject.SetActive(false);
+
+            }
         }
     }
 
@@ -110,7 +168,7 @@ class DialoguePanelManager : MonoBehaviour
         }
     }
 
-    const string FINAL_ANSWER = "Goodbye.";
+    const string FINAL_ANSWER = "End interaction with the subject";
     TypeWriter typeWriter = new TypeWriter();
     bool moveToNextLine;
 

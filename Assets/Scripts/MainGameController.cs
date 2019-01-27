@@ -8,18 +8,31 @@ class MainGameController : MonoBehaviour
     public HintPanelManager hintPanel;
     public EpiloguePanelManager epilogueUI;
     public AudioManager audioManager;
-
+    public GameObject terrain;
+    public GameObject forest;
 
     void Start()
     {
+        terrain.SetActive(false);
+        forest.SetActive(false);
         MyJsonUtility.LoadData(out charactersDict, out characters, out dialogues);
         dialogueUI.OnAnswerSelected += OnAnswerSelected;
+        dialogueUI.IntroStage += OnIntroStageChange;
         charactersUI.OnCharacterSelected += OnCharacterSelected;
         SubmitLogic.ScoresComputed += OnScoresComputed;
         currentCharacter = charactersDict["AI"];
-        dialogueUI.DisplayDialogue(currentCharacter.CurrentDialogue);
+        dialogueUI.DisplayIntro(currentCharacter.CurrentDialogue);
         charactersUI.SetCharacters(characters);
         audioManager.PlayIntro();
+    }
+
+    void OnIntroStageChange(int lineIndex)
+    {
+        if (lineIndex == 5)
+        {
+            terrain.SetActive(true);
+            forest.SetActive(true);
+        }
     }
 
     void OnAnswerSelected(int answerIndex)
