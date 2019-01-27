@@ -60,7 +60,6 @@ class MainGameController : MonoBehaviour
             currentCharacter.CurrentDialogue = currentCharacter.StartingDialogue;
             currentCharacter = null;
             dialogueUI.ResetDialogues();
-            hintPanel.ClearHintPanel();
         }
     }
 

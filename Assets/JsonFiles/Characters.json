@@ -37,21 +37,17 @@
 	},
 	"Captain":
 	{
-		"StartingDialogue":"ProfessorDialogue",
-		"LikedCharacter":"Astronomer",
-		"DislikedCharacter":"Executive",
-		"LikedMapSide":"Mountain",
-		"DislikedMapSide":"Beach",
+		"StartingDialogue":"CaptainDialogue",
+		"LikedCharacter":"Executive",
+		"DislikedMapSide":"Mountain",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
 	},
 	"Prepper":
 	{
-		"StartingDialogue":"ProfessorDialogue",
-		"LikedCharacter":"Astronomer",
+		"StartingDialogue":"PrepperDialogue",
 		"DislikedCharacter":"Executive",
-		"LikedMapSide":"Mountain",
-		"DislikedMapSide":"Beach",
+		"LikedMapSide":"Forest",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
 	},
