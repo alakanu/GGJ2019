@@ -1718,15 +1718,15 @@ MonoBehaviour:
   - {fileID: 3339499417196191794}
   - {fileID: 5959194467011418268}
   draggables:
+  - {fileID: 1357857156446921020, guid: 0c97ec3fc8c761343bb128db0a57ceba, type: 3}
+  - {fileID: 2981195898769529232, guid: 4a99d240ea1d3fe4089651b11c0f0d04, type: 3}
+  - {fileID: 954718533140233256, guid: 208ce57ab4860ea4f9adff9616a9aaa7, type: 3}
+  - {fileID: 1375265581259965853, guid: be825655814e1644486f1fec62cd0949, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2804160843500655337, guid: 53de873601b46f048886c1e2e6c58267, type: 3}
+  - {fileID: 253358880428783505, guid: 93e45240c78373044a229b8992d1c41c, type: 3}
+  - {fileID: 1493343354163419488, guid: 5d7b4aadc5651054d9a3c05a1a05fc1f, type: 3}
+  - {fileID: 8857575468047976181, guid: 4c856b3b29dc9944db054d61df8e43b1, type: 3}
   submit: {fileID: 4078199047180106152}
   characterPortraitsNormal:
   - {fileID: 21300000, guid: 0f55025ef596ff449bb2851289a8139c, type: 3}
@@ -3644,7 +3644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c8f897cfca5948bb03ca227224a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickAudioClip: {fileID: 8300000, guid: f3114430aa76e5e4089a2a30223b6b30,
+  buttonClickAudioClip: {fileID: 8300000, guid: cc32ac1ef43e8584596a1d28d5ef4531,
     type: 3}
   audioSource: {fileID: 1139143845751096074}
 --- !u!1 &4340835710646191216
