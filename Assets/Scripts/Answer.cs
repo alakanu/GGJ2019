@@ -1,31 +1,22 @@
-﻿class Answer
+﻿class Option
 {
-    public string AnswerText;
+    public string OptionText;
     public Dialogue NextDialogue;
-    public DiscoveryType DiscoveryType;
+    public string Hint;
 
-    public bool HasDiscovery
+    public bool YieldsHint
     {
         get
         {
-            return DiscoveryType != DiscoveryType.None;
+            return Hint != null;
         }
     }
 }
 
 [System.Serializable]
-class AnswerJson
+class OptionJson
 {
     public string OptionText;
-    public string DiscoveryType;
+    public string Hint;
     public string NextDialogue;
-}
-
-enum DiscoveryType
-{
-    None,
-    CharacterLiked,
-    CharacterDisliked,
-    MapSideLiked,
-    MapSideDisliked
 }

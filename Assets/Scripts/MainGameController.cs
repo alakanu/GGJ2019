@@ -40,29 +40,13 @@ class MainGameController : MonoBehaviour
         Dialogue currentDialogue = currentCharacter.CurrentDialogue;
         if (currentDialogue.HasOptions)
         {
-            Answer answer = currentDialogue.Options[answerIndex];
-            if (answer.HasDiscovery)
+            Option option = currentDialogue.Options[answerIndex];
+            if (option.YieldsHint)
             {
-                int index = -1;
-                switch (answer.DiscoveryType)
-                {
-                    case DiscoveryType.CharacterLiked:
-                        index = 0;
-                        break;
-                    case DiscoveryType.CharacterDisliked:
-                        index = 1;
-                        break;
-                    case DiscoveryType.MapSideLiked:
-                        index = 2;
-                        break;
-                    case DiscoveryType.MapSideDisliked:
-                        index = 3;
-                        break;
-                }
-                currentCharacter.Discoveries[index] = true;
+                currentCharacter.DiscoveredHints.Add(option.Hint);
             }
 
-            currentCharacter.CurrentDialogue = answer.NextDialogue;
+            currentCharacter.CurrentDialogue = option.NextDialogue;
             dialogueUI.DisplayDialogue(currentCharacter.CurrentDialogue);
         }
         else

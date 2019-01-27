@@ -94,12 +94,12 @@ class DialoguePanelManager : MonoBehaviour
 
         if (currentDialogue.HasOptions)
         {
-            Answer[] answers = currentDialogue.Options;
+            Option[] answers = currentDialogue.Options;
             int i;
             for (i = 0; i < answers.Length; i++)
             {
                 AnswerButtons[i].gameObject.SetActive(true);
-                AnswerTexts[i].text = answers[i].AnswerText;
+                AnswerTexts[i].text = answers[i].OptionText;
             }
 
             for (; i < AnswerTexts.Length; i++)
@@ -143,12 +143,12 @@ class DialoguePanelManager : MonoBehaviour
 
         if (currentDialogue.HasOptions)
         {
-            Answer[] answers = currentDialogue.Options;
+            Option[] answers = currentDialogue.Options;
             int i;
             for (i = 0; i < answers.Length; i++)
             {
                 AnswerButtons[i].gameObject.SetActive(true);
-                AnswerTexts[i].text = answers[i].AnswerText;
+                AnswerTexts[i].text = answers[i].OptionText;
             }
 
             for (; i < AnswerTexts.Length; i++)

@@ -36,7 +36,7 @@ static class MyJsonUtility
                 character.DislikedCharacter = characterRaw.DislikedCharacter;
                 character.LikedMapSide = (MapSide)Enum.Parse(typeof(MapSide), characterRaw.LikedMapSide);
                 character.DislikedMapSide = (MapSide)Enum.Parse(typeof(MapSide), characterRaw.DislikedMapSide);
-                character.Discoveries = new bool[4];
+                character.DiscoveredHints = new HashSet<string>();
                 character.HappyEnding = characterRaw.HappyEnding;
                 character.SadEnding = characterRaw.SadEnding;
                 charactersList.Add(character);
@@ -67,16 +67,16 @@ static class MyJsonUtility
             }
 
             dialogue.DialogueBody = dialogueRaw.DialogueBody;
-            AnswerJson[] answersRaw = dialogueRaw.Options;
+            OptionJson[] answersRaw = dialogueRaw.Options;
             if (answersRaw != null)
             {
-                Answer[] dialogueAnswers = new Answer[answersRaw.Length];
+                Option[] dialogueOptions = new Option[answersRaw.Length];
                 for (int i = 0; i < answersRaw.Length; i++)
                 {
-                    var answerRaw = answersRaw[i];
-                    var answer = new Answer();
-                    answer.AnswerText = answerRaw.OptionText;
-                    string nextDialogueKey = answerRaw.NextDialogue;
+                    var optionRaw = answersRaw[i];
+                    var option = new Option();
+                    option.OptionText = optionRaw.OptionText;
+                    string nextDialogueKey = optionRaw.NextDialogue;
                     Dialogue nextDialogue;
 
                     if (dialogues.TryGetValue(nextDialogueKey, out nextDialogue) == false)
@@ -85,38 +85,16 @@ static class MyJsonUtility
                         dialogues.Add(nextDialogueKey, nextDialogue);
                     }
 
-                    answer.NextDialogue = nextDialogue;
+                    option.NextDialogue = nextDialogue;
+                    option.Hint = optionRaw.Hint;
 
-                    if (answerRaw.DiscoveryType != null)
-                    {
-                        switch (answerRaw.DiscoveryType)
-                        {
-                            case "CharacterLiked":
-                                answer.DiscoveryType = DiscoveryType.CharacterLiked;
-                                break;
-                            case "CharacterDisliked":
-                                answer.DiscoveryType = DiscoveryType.CharacterDisliked;
-                                break;
-                            case "MapSideLiked":
-                                answer.DiscoveryType = DiscoveryType.MapSideLiked;
-                                break;
-                            case "MapSideDisliked":
-                                answer.DiscoveryType = DiscoveryType.MapSideDisliked;
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        answer.DiscoveryType = DiscoveryType.None;
-                    }
-
-                    dialogueAnswers[i] = answer;
+                    dialogueOptions[i] = option;
                 }
-                dialogue.Options = dialogueAnswers;
+                dialogue.Options = dialogueOptions;
             }
             else
             {
-                dialogue.Options = new Answer[0];
+                dialogue.Options = new Option[0];
             }
         }
 

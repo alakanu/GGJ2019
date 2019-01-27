@@ -12,49 +12,15 @@ class HintPanelManager : MonoBehaviour
 
     public void DisplayCharacterHints(Character character)
     {
-        gameObject.SetActive(true);
-
-        int hintCount = 0;
-        bool[] discoveries = character.Discoveries;
-
-        if (discoveries[0])
+        if (character.DiscoveredHints.Count != 0)
         {
-            lines[hintCount].gameObject.SetActive(true);
-            lines[hintCount].text = "Likes " + character.LikedCharacter;
-            ++hintCount;
-        }
-
-        if (discoveries[1])
-        {
-            lines[hintCount].gameObject.SetActive(true);
-            lines[hintCount].text = "Dislikes " + character.DislikedCharacter;
-            ++hintCount;
-        }
-
-        if (discoveries[2])
-        {
-            lines[hintCount].gameObject.SetActive(true);
-            lines[hintCount].text = "Likes " + character.LikedMapSide;
-            ++hintCount;
-        }
-
-        if (discoveries[3])
-        {
-            lines[hintCount].gameObject.SetActive(true);
-            lines[hintCount].text = "Dislikes " + character.DislikedMapSide;
-            ++hintCount;
-        }
-
-        if (hintCount == 0)
-        {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            for (; hintCount < lines.Length; hintCount++)
+            gameObject.SetActive(true);
+            int i = 0;
+            foreach (var item in character.DiscoveredHints)
             {
-                lines[hintCount].gameObject.SetActive(false);
+                lines[i++].text = item;
             }
+
         }
     }
 

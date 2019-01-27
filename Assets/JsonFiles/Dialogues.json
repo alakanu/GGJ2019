@@ -59,7 +59,7 @@
 			{
 				"OptionText": "Why did you leave Earth?",
 				"NextDialogue": "ProfessorDialogueA",
-				"DiscoveryType":"CharacterLiked"
+				"Hint":"CharacterLiked"
 			},
 			{
 				"OptionText": "What do you think of Kepler?",
@@ -68,7 +68,7 @@
 			{
 				"OptionText": "What does home mean to you?",
 				"NextDialogue": "ProfessorDialogueC",
-				"DiscoveryType":"CharacterDisliked"
+				"Hint":"CharacterDisliked"
 			}
 		]
 	},
@@ -144,17 +144,17 @@
 			{
 				"OptionText": "Why did you leave Earth?",
 				"NextDialogue": "AstronomerDialogueA",
-				"DiscoveryType":"MapSideDisliked"
+				"Hint":"MapSideDisliked"
 			},
 			{
 				"OptionText": "What do you think of Kepler?",
 				"NextDialogue": "AstronomerDialogueB",
-				"DiscoveryType":"MapSideLiked"
+				"Hint":"MapSideLiked"
 			},
 			{
 				"OptionText": "What does home mean to you?",
 				"NextDialogue": "AstronomerDialogueC",
-				"DiscoveryType":"CharacterDisliked"
+				"Hint":"CharacterDisliked"
 			}
 		]
 	},
@@ -222,12 +222,12 @@
 			{
 				"OptionText": "Why did you leave Earth?",
 				"NextDialogue": "RangerDialogueA",
-				"DiscoveryType":"CharacterDisliked"
+				"Hint":"CharacterDisliked"
 			},
 			{
 				"OptionText": "What do you think of Kepler?",
 				"NextDialogue": "RangerDialogueB",
-				"DiscoveryType":"MapSideLiked"
+				"Hint":"MapSideLiked"
 			},
 			{
 				"OptionText": "What does home mean to you?",
@@ -311,12 +311,12 @@
 			{
 				"OptionText": "What do you think of Kepler?",
 				"NextDialogue": "AnglerDialogueB",
-				"DiscoveryType":"MapSideLiked"
+				"Hint":"MapSideLiked"
 			},
 			{
 				"OptionText": "What does home mean to you?",
 				"NextDialogue": "AnglerDialogueC",
-				"DiscoveryType":"CharacterDisliked"
+				"Hint":"CharacterDisliked"
 			}
 		]
 	},
