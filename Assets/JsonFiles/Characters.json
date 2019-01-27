@@ -14,7 +14,7 @@
 	"Astronomer":
 	{
 		"StartingDialogue":"AstronomerDialogue",
-		"LikedMapSide":"Mountains",
+		"LikedMapSide":"Mountain",
 		"DislikedMapSide":"Beach",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
@@ -40,7 +40,7 @@
 		"StartingDialogue":"ProfessorDialogue",
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
-		"LikedMapSide":"Mountains",
+		"LikedMapSide":"Mountain",
 		"DislikedMapSide":"Beach",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
@@ -50,7 +50,7 @@
 		"StartingDialogue":"ProfessorDialogue",
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
-		"LikedMapSide":"Mountains",
+		"LikedMapSide":"Mountain",
 		"DislikedMapSide":"Beach",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
@@ -60,7 +60,7 @@
 		"StartingDialogue":"ProfessorDialogue",
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
-		"LikedMapSide":"Mountains",
+		"LikedMapSide":"Mountain",
 		"DislikedMapSide":"Beach",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
@@ -70,7 +70,7 @@
 		"StartingDialogue":"ProfessorDialogue",
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
-		"LikedMapSide":"Mountains",
+		"LikedMapSide":"Mountain",
 		"DislikedMapSide":"Beach",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
@@ -80,7 +80,7 @@
 		"StartingDialogue":"ProfessorDialogue",
 		"LikedCharacter":"Astronomer",
 		"DislikedCharacter":"Executive",
-		"LikedMapSide":"Mountains",
+		"LikedMapSide":"Mountain",
 		"DislikedMapSide":"Beach",
 		"HappyEnding":"yolo",
 		"SadEnding":"yolmt"
